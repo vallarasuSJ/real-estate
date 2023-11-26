@@ -1,0 +1,54 @@
+.agent-card {
+    margin: 80px;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 60px;
+    background-color:white;
+    
+  }
+  .agent{
+    background-color: rgb(200, 212, 228);
+    margin-left: 10px;
+    margin-bottom: 20px;
+
+  }
+  .agent:hover{
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+
+  }
+  .property-card {
+    margin-bottom: 10px;
+    overflow: hidden;
+    -webkit-transition: box-shadow 0.5s;
+    transition: box-shadow 0.5s;
+   
+  }
+  .property-card:hover{
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    
+  }
+.property-card:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+
+.property-card:hover .circle {
+  border-color: var(--bg-color-light);
+  background: var(--bg-color);
+}
+
+.property-card:hover .circle:after {
+  background: var(--bg-color-light);
+}
+
+.property-card:hover p {
+  color: var(--text-color-hover);
+}
+  h5{
+    color:rgb(47, 76, 83);
+  }
+
+  .image{
+    border-radius: 50%;
+    width:100px;
+    height: 100px;
+  }

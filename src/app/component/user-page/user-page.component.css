@@ -1,0 +1,100 @@
+/*navbar*/
+  .navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: absolute;
+  }
+  .navbar-brand img {
+    width: 80px; 
+    height: auto;
+    margin-right: 20px;
+  }
+  .navbar a {
+    color: white;
+    margin: 0 10px;
+  }
+  .navbar a:hover {
+    color: #ddd;
+  }
+  .navbar-line {
+    border-bottom: 1px solid white;
+  width: 100%;
+  margin-top: 5px;
+  position: fixed;
+  top: 50px; 
+  z-index: 999;
+  background-color: transparent;
+  position: absolute;
+  }
+  .navbar-nav {
+    padding-left: 100px;
+    padding-right: 300px;
+    padding-top: 2px;
+    color: white;
+  }
+  .navbar-line {
+    border: none;
+    width: 80%;
+    border-top: 0.5px solid white;
+    margin-left: 90px;
+    padding-top: 50px;
+    margin-bottom: 20px;
+  }
+
+
+  /*properties*/
+  .property-card {
+    margin-bottom: 20px;
+  }
+  h1{
+      padding-top:70px;
+      padding-bottom: 20px;
+  }
+  .container{
+    position: sticky;
+  }
+
+  .property-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a box-shadow */
+    transform: translateY(-5px); /* Adding a slight lift on hover */
+    transition: all 0.3s ease; /* Adding a smooth transition */
+  }
+
+  .property-card {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+   
+    transition: box-shadow 0.3s ease;
+  }
+  .property-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+  }
+  .property-card .card-body {
+    padding: 20px;
+  }
+  .property-card .card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: start;
+  }
+  .property-card .card-text {
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .property-card .btn-primary {
+    margin-top: auto;
+    display: block;
+    width: 100%;
+  }
+  h1{
+    font-size:xx-large;
+    font-weight: 500;
+  }
+
+  

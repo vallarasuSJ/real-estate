@@ -1,0 +1,82 @@
+<div *ngif="isAgent">
+  <app-agent-page></app-agent-page>
+</div>
+
+<div class="container py-4">
+  <h1 >Properties</h1>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let property of properties">
+      <div class="card property-card">
+        <img
+          src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
+          class="card-img-top"
+          alt="Property Image"
+        />
+        <div class="card-body ">
+          <div class="card-location d-flex">
+            <i class="fa-solid fa-location-dot me-1 pb-3"></i>
+            <p class="card-text">{{ property.city }}</p>
+          </div>
+          <h5 class="card-title pb-2">Property name: {{ property.propertyName }}</h5>
+          <div class="card-icons d-flex ">
+            <ul class="d-flex list-unstyled">
+              <li class="me-4 ">
+                <i class="fa-solid fa-bed me-2"></i>	
+                <p class="text-primary">2 bedrooms</p>
+              </li>
+              <li class="me-4 ">
+                <i class="fa-solid fa-bath me-2"></i>
+            <p class="text-primary">2 bathrooms </p>	
+              </li>
+              <li class="me-4 ">
+                <i class="fa-solid fa-car me-2"></i>
+                <p class="text-primary">2 car parkings</p>  
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex ">
+            <p class="text-primary">₹ {{ property.price }}</p>
+            <a
+            routerLink="/propertyDetails"
+            class="text-primary button-view"
+            (click)="setSelectedProperty(property)"
+            >View Details ></a
+          >
+          </div>
+          <div class="d-flex">
+            <img
+            src="https://i.pinimg.com/originals/76/da/03/76da03c579566626fa270bdb6df1280b.jpg"
+            class="card-image me-3"
+            alt="Property Image"
+          />
+          <div class="text-primary ">
+            <p class="text-detail">Agent-Name:Monkey d luffy</p>
+            <p >Contact:537854394</p>
+          </div>
+          </div>
+          
+          <p class="card-text"></p>
+          
+          <a
+            routerLink="/updateProperty"
+            class="btn btn-secondary btn-block me-2 mt-2 px-2"
+            (click)="editProperty(property.id!)"
+            >Edit</a
+          >
+          <a
+            routerLink="/properties"
+            class="btn btn-danger btn-block mt-2"
+            (click)="deleteProperty(property.id!)"
+            >Delete</a
+          >
+        </div>
+        <a
+          href="#"
+          class="btn btn-secondary btn-block me-2 mt-2 px-2"
+          (click)="approveProperty(property)"
+          >approveProperty</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

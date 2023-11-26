@@ -1,0 +1,37 @@
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid">
+    <!-- Left side with logo, properties, agents -->
+    <div class="d-flex align-items-center">
+      <div class="navbar-nav me-auto">
+        <a class="navbar-brand" href="/">
+          <i class="fa fa-house ps-1 pe-2"></i>Real estate
+        </a>
+        
+        <a class="navbar-brand" href="/properties">
+          <i class="fa fa-house pe-2"></i>Properties
+        </a>
+        
+        <a class="navbar-brand ps-1" href="/agents">
+          <i class="fa fa-person pe-2"></i>Agents
+          </a>
+      </div>
+    </div>
+
+    <!-- Right side with login, signup -->
+    <div class="d-flex align-items-center">
+      <div class="navbar-nav">
+        <button type="submit" routerLink="/login" class="btn btn-primary ps-1 me-1"><i class="fa fa-sign-in" aria-hidden="true"></i>
+          Login
+        </button>
+       
+        <button type="submit" routerLink="/register" class="btn btn-primary ps-1 pe-1"> <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Line at the bottom -->
+<div class="navbar-line"></div>

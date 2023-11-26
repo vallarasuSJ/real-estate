@@ -1,0 +1,33 @@
+ 
+ .table-bordered th,
+ .table-bordered td {
+   border: 1px solid #dee2e6;
+   padding: 8px;
+ }
+
+ 
+ .thead-dark th {
+   background-color: #343a40;
+   color: #fff;
+ }
+
+ .card-img-top {
+  height: 120px;  
+  object-fit: cover;
+}
+
+
+ .property-image {
+   max-width: 100px;
+   height: auto;
+ }
+
+ .action-btns button {
+    margin-right: 5px;
+  }
+  .container{
+    margin-top: 50px;
+  }
+  h1{
+    color:white;
+  }

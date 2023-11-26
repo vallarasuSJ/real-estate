@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid pt-0">
+      <div class="d-flex align-items-center">
+        <div class="navbar-nav me-auto">
+          <a class="navbar-brand" href="/agentPage">
+            <i class="fa fa-house ps-1 pe-2"></i>Real estate
+          </a>
+  
+          <a class="navbar-brand" href="/agents">
+            <i class="fa fa-house pe-2"></i>Properties
+          </a>
+  
+          <a class="navbar-brand ps-1" href="/addProperty">
+            <i class="fa fa-person pe-2"></i>Add Properties
+          </a>
+        </div>
+      </div>
+  
+      <div class="d-flex align-items-center">
+        <div class="navbar-nav">
+          <button type="submit" routerLink="/" class="btn btn-primary px-3">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Line at the bottom -->
+  <div class="navbar-line"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left side - Add Property form -->
+      <div class="col-md-6">
+        <div class="add-property-form text-primary">
+          <h2>update Property</h2>
+          <br />
+          <form #updatePropertyForm="ngForm" (ngSubmit)="updateProperty(updatePropertyForm)">
+            <div class="form-group">
+              <label for="propertyName" class="mb-2">Property Name</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="propertyName"
+                placeholder="Enter property name"
+                name="propertyName"
+                [(ngModel)]="propertyName"
+              
+              />
+             
+            </div>
+            <div class="form-group">
+              <label for="Address" class="mb-2">Address</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="Address"
+                placeholder="Enter Address"
+                name="Address"
+                [(ngModel)]="Address"
+               
+              />
+            </div>
+            <div class="form-group">
+              <label for="city" class="mb-2">City</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="city"
+                placeholder="Enter city"
+                name="city"
+                [(ngModel)]="city"
+              />
+              
+            </div>
+            <div class="form-group">
+              <label for="zipcode" class="mb-2">Zip Code</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="zipcode"
+                placeholder="Enter zipcode"
+                name="zipcode"
+                [(ngModel)]="zipcode"
+              />
+             
+            </div>
+            <div class="form-group">
+              <label for="price" class="mb-2">Price</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="price"
+                name="price"
+                [(ngModel)]="price"
+              />
+              
+            </div>
+            <div class="form-group">
+              <label for="image" class="mb-2">Image Upload</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input mb-2" id="image" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">update</button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Right side - Building Image -->
+      <div class="col-md-6 building-image">
+        <img
+          src="../../../assets/images/real estate project image.png"
+          alt="Placeholder Image"
+          class="img-fluid"
+        /> 
+      </div>
+    </div>
+  </div>
+  

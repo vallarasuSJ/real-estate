@@ -1,0 +1,128 @@
+<div class="container">
+  <!-- Agent 1 -->
+  <div class="agent-card"  *ngFor="let agent of agents">
+    <div class="row">
+    <div class="col-6 agent d-flex opacity-70 " >
+      <div class="image pt-2">
+        <img
+          src="https://i.pinimg.com/originals/76/da/03/76da03c579566626fa270bdb6df1280b.jpg"
+          class="card-img-top"
+          alt="Property Image"
+        />
+      </div>
+      <div class="col-6 ps-3 pt-3">
+        <h5>Agent-Name: {{agent.agentName}}</h5>
+        <h5>Contact: {{agent.contactNumber}}</h5>
+      </div>
+      
+    </div>
+    </div>
+
+    <!-- Properties of Agent 1 -->
+    <div class="row">
+      <div class="col-md-3" *ngFor="let property of agent.propertyList" >
+        <div class="card property-card">
+          <h5 class="card-title">2BHK house</h5>
+          <img
+            src="https://images.nobroker.in/images/8a9fac838b9d4285018b9deaffcd58b5/8a9fac838b9d4285018b9deaffcd58b5_43680_455875_medium.jpg"
+            class="card-img-top"
+            alt="Property Image"
+          />
+          <div class="card-body" >
+            <p class="card-text">Name: {{property.propertyName}}</p>
+            <p class="card-text" >Address: {{property.address}}</p>
+            <p class="card-text">city: {{property.city}}</p>
+            <p class="card-text">zipcode: {{property.zipcode}}</p>
+            <a routerLink="/propertyDetails" class="btn btn-primary" (click)="setSelectedProperty(agent)">View Details</a>
+            <a href="#" class="btn btn-secondary btn-block me-2 mt-2 px-2"
+            >Edit</a
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent 2 -->
+  <!-- <div class="agent-card">
+    <div class="row ">
+    <div class="col-6 agent d-flex opacity-70 ">
+      <div class="image pt-2">
+        <img
+          src="https://i.pinimg.com/originals/76/da/03/76da03c579566626fa270bdb6df1280b.jpg"
+          class="card-img-top"
+          alt="Property Image"
+        />
+      </div>
+      <div class="col-8 ps-3 pt-3">
+        <h5>Agent-Name: Monkey D Luffy</h5>
+        <h5>Contact: 879865</h5>
+      </div>
+    </div>
+    </div>
+
+    Properties of Agent 1
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card property-card">
+          <h5 class="card-title">2BHK house</h5>
+          <img
+            src="https://images.nobroker.in/images/8a9fac838b9d4285018b9deaffcd58b5/8a9fac838b9d4285018b9deaffcd58b5_43680_455875_medium.jpg"
+            class="card-img-top"
+            alt="Property Image"
+          />
+          <div class="card-body">
+            <p class="card-text">Price: $500,000</p>
+            <p class="card-text">Address: 123 Main St</p>
+            <a routerLink="/propertyDetails" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card property-card">
+          <h5 class="card-title">2BHK house</h5>
+          <img
+            src="https://images.nobroker.in/images/8a9fac838b9d4285018b9deaffcd58b5/8a9fac838b9d4285018b9deaffcd58b5_43680_455875_medium.jpg"
+            class="card-img-top"
+            alt="Property Image"
+          />
+          <div class="card-body">
+            <p class="card-text">Price: $500,000</p>
+            <p class="card-text">Address: 123 Main St</p>
+            <a routerLink="/propertyDetails" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card property-card">
+          <h5 class="card-title">2BHK house</h5>
+          <img
+            src="https://images.nobroker.in/images/8a9fac838b9d4285018b9deaffcd58b5/8a9fac838b9d4285018b9deaffcd58b5_43680_455875_medium.jpg"
+            class="card-img-top"
+            alt="Property Image"
+          />
+          <div class="card-body">
+            <p class="card-text">Price: $500,000</p>
+            <p class="card-text">Address: 123 Main St</p>
+            <a routerLink="/propertyDetails" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card property-card">
+          <h5 class="card-title">2BHK house</h5>
+          <img
+            src="https://images.nobroker.in/images/8a9fac838b9d4285018b9deaffcd58b5/8a9fac838b9d4285018b9deaffcd58b5_43680_455875_medium.jpg"
+            class="card-img-top"
+            alt="Property Image"
+          />
+          <div class="card-body">
+            <p class="card-text">Price: $500,000</p>
+            <p class="card-text">Address: 123 Main St</p>
+            <a routerLink="/propertyDetails" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
