@@ -7,4 +7,5 @@ export interface bookedProperties{
     zipcode:number;
     price:string;
     contactNumber:number;
+    customerId:number;
 }

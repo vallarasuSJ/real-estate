@@ -55,7 +55,7 @@ export class AuthService {
     this.isAgentSubject.next(false);
     this.isLoggedInSubject.next(false);
     this.storageService.removeLoggedInUser();
-    this.router.navigate(['/login'], { replaceUrl: true });
+    this.router.navigate(['/'], { replaceUrl: true });
   }
 
   isAdmin(): boolean {
@@ -75,13 +75,13 @@ export class AuthService {
     this.isLoggedInSubject.next(true);
 
     if (user.role === CONSTANT.USER) {
-      this.router.navigate(['/agentProperties'], { replaceUrl: true });
+      this.router.navigate(['/'], { replaceUrl: true });
     } else if (user.role === CONSTANT.ADMIN) {
       this.isAdminSubject.next(true);
       this.router.navigate(['/admin'], { replaceUrl: true });
     }else if(user.role===CONSTANT.AGENT){
       this.isAgentSubject.next(true);
-      this.router.navigate(['/agentPage'],{replaceUrl:true});
+      this.router.navigate(['/'],{replaceUrl:true});
     }
   }
 

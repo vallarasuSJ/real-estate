@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export interface PropertyDetail {
   id?: number;
   propertyName: string;
@@ -8,4 +10,5 @@ export interface PropertyDetail {
   agentId?: number;
   addressId?: number;
   customerId?: number;
+  approve?:boolean;
 }

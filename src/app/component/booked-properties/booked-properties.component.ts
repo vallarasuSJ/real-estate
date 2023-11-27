@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { bookedProperties } from 'src/app/model/booked';
 import { BookingService } from 'src/app/service/booking.service';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-booked-properties',
@@ -8,14 +9,19 @@ import { BookingService } from 'src/app/service/booking.service';
   styleUrls: ['./booked-properties.component.css'],
 })
 export class BookedPropertiesComponent implements OnInit {
+  userId:number=0;
   error: String = '';
   booked: bookedProperties[] = [];
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private bookingService: BookingService,private storageService:StorageService) {}
   ngOnInit(): void {
+    this.userId=this.storageService.getLoggedInUser().id;
     this.bookingService.getAllBookedProperties().subscribe({
       next: (response) => {
         this.booked=response.data;
+       
+        console.log(this.userId);
+        
       },
       error: (err: any) => {
         let message: string = err?.error?.error?.message;

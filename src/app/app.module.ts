@@ -25,6 +25,8 @@ import { UserPageComponent } from './component/user-page/user-page.component';
 import { AgentPageComponent } from './component/agent-page/agent-page.component';
 import { UpdatePropertyComponent } from './component/update-property/update-property.component';
 import { AgentPropertiesComponent } from './component/agent-properties/agent-properties.component';
+import { ApprovePropertyComponent } from './component/approve-property/approve-property.component';
+import { ToastPackage, ToastrModule } from 'ngx-toastr';
 
 export function playerFactory() {
   return player;
@@ -48,6 +50,7 @@ export function playerFactory() {
     AgentPageComponent,
     UpdatePropertyComponent,
     AgentPropertiesComponent,
+    ApprovePropertyComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ export function playerFactory() {
     ReactiveFormsModule,
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
+    ToastrModule.forRoot()
   ],
   providers: [
     {

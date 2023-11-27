@@ -13,52 +13,50 @@ import { StorageService } from 'src/app/service/storage.service';
   styleUrls: ['./property-details.component.css'],
 })
 export class PropertyDetailsComponent implements OnInit {
-
-  constructor(private propertyService: PropertyService,private agentService:AgentService,private bookingService:BookingService,private storageService:StorageService) {
-    this.propertyDetail=propertyService.getSelectedProperty();
-    this.agentProperty=agentService.getSelectedProperty();
+  constructor(
+    private propertyService: PropertyService,
+    private agentService: AgentService,
+    private bookingService: BookingService,
+    private storageService: StorageService,
+  ) {
+    this.propertyDetail = propertyService.getSelectedProperty();
+    this.agentProperty = agentService.getSelectedProperty();
   }
-
+  role:String='';
   error: String = '';
-  propertyDetail:PropertyDetail={
-    id:0,
-    propertyName:"",
-    price:0,
-    address:"",
-    city:"",
-    zipcode:0,
-  }
+  propertyDetail: PropertyDetail = {
+    id: 0,
+    propertyName: '',
+    price: 0,
+    address: '',
+    city: '',
+    zipcode: 0,
+  };
 
-  agentProperty:AgentProperties={
-    propertyId:0,
-    propertyName:"",
-    price:0,
-    address:"",
-    city:"",
-    zipcode:0,
-  }
-  
+  agentProperty: AgentProperties = {
+    propertyId: 0,
+    propertyName: '',
+    price: 0,
+    address: '',
+    city: '',
+    zipcode: 0,
+  };
+
   ngOnInit(): void {
+    this.role= this.storageService.getLoggedInUser().role;
   }
 
-  bookProperty(propertyDetail:PropertyDetail){
-    propertyDetail.customerId=this.storageService.getLoggedInUser().id;
+  bookProperty(propertyDetail: PropertyDetail) {
+    propertyDetail.customerId = this.storageService.getLoggedInUser().id;
     console.log(propertyDetail);
     this.bookingService.bookProperty(propertyDetail).subscribe({
-      next:(response)=>{
+      next: (response) => {
         response.data;
       },
-      error:(err)=>{
+      error: (err) => {
         let message: String = err.error.error.message;
         this.error = message.includes(',') ? message.split(',')[0] : message;
-      }
-    })
-    
-    
-  
-
+      },
+    });
   }
-
-
-  
 }

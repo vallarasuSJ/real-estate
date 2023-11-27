@@ -3,23 +3,27 @@
   <div class="container-fluid pt-0">
     <div class="d-flex align-items-center">
       <div class="navbar-nav me-auto">
-        <a class="navbar-brand" href="/user">
+        <a class="navbar-brand" routerLink="/">
           <i class="fa fa-house ps-1 pe-2"></i>Real estate
         </a>
 
-        <a class="navbar-brand" href="/user">
+        <a class="navbar-brand" routerLink="/properties">
           <i class="fa fa-house pe-2"></i>Properties
         </a>
 
-        <a class="navbar-brand ps-1" href="/bookedProperties">
+        <a class="navbar-brand ps-1" routerLink="/bookedProperties">
           <i class="fa fa-person pe-2"></i>Booked
+        </a>
+
+        <a class="navbar-brand ps-1" routerLink="/agents">
+          <i class="fa fa-person pe-2"></i>Agents
         </a>
       </div>
     </div>
 
     <div class="d-flex align-items-center">
       <div class="navbar-nav">
-        <button type="submit" routerLink="/" class="btn btn-primary px-3">
+        <button type="submit" class="btn btn-primary px-3" (click)="logout()">
           <i class="fa-solid fa-right-from-bracket"></i>
           Logout
         </button>
@@ -31,88 +35,5 @@
 <!-- Line at the bottom -->
 <div class="navbar-line"></div>
 
-<!-- properties -->
-<div class="container py-4">
-    <h1 class="mb-4 text-primary">Properties</h1>
-    <div class="row">
-      
-      <div class="col-md-3">
-        <div class="card property-card">
-          <img
-            src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
-            class="card-img-top"
-            alt="Property Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Property Name</h5>
-            <p class="card-text">Price: $500,000</p>
-            <p class="card-text">Address: 123 Main St</p>
-            <a href="#" class="btn btn-primary btn-block">View Details</a>
-            <a href="#" class="btn btn-secondary btn-block me-2 mt-2 px-2"
-              >Edit</a
-            >
-            <a href="#" class="btn btn-danger btn-block mt-2">Delete</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card property-card">
-          <img
-            src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
-            class="card-img-top"
-            alt="Property Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Property Name</h5>
-            <p class="card-text">Price: $500,000</p>
-            <p class="card-text">Address: 123 Main St</p>
-            <a href="#" class="btn btn-primary btn-block">View Details</a>
-            <a href="#" class="btn btn-secondary btn-block me-2 mt-2 px-2"
-              >Edit</a
-            >
-            <a href="#" class="btn btn-danger btn-block mt-2">Delete</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card property-card">
-          <img
-            src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
-            class="card-img-top"
-            alt="Property Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Property Name</h5>
-            <p class="card-text">Price: $500,000</p>
-            <p class="card-text">Address: 123 Main St</p>
-            <a href="#" class="btn btn-primary btn-block">View Details</a>
-            <a href="#" class="btn btn-secondary btn-block me-2 mt-2 px-2"
-              >Edit</a
-            >
-            <a href="#" class="btn btn-danger btn-block mt-2">Delete</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card property-card">
-          <img
-            src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
-            class="card-img-top"
-            alt="Property Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Property Name</h5>
-            <p class="card-text">Price: $500,000</p>
-            <p class="card-text">Address: 123 Main St</p>
-            <a href="#" class="btn btn-primary btn-block">View Details</a>
-            <a href="#" class="btn btn-secondary btn-block me-2 mt-2 px-2"
-              >Edit</a
-            >
-            <a href="#" class="btn btn-danger btn-block mt-2">Delete</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 

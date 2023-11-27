@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Form } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/model/address';
 import { PropertyDetail } from 'src/app/model/property';
 import { AddressService } from 'src/app/service/address.service';
@@ -12,7 +13,7 @@ import { StorageService } from 'src/app/service/storage.service';
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
-export class AddPropertyComponent {
+export class AddPropertyComponent implements OnInit{
   propertyName:string='';
   price:number=0;
   Address:string='';
@@ -24,6 +25,14 @@ export class AddPropertyComponent {
   
 
   constructor(private propertyService:PropertyService,private storageService:StorageService){}
+  ngOnInit(): void {
+    this.propertyName="";
+    this.price=0;
+    this.Address='';
+    this.city='';
+    this.zipcode=0;
+    
+  }
     
 
   addProperty(addPropertyForm:Form):void{
@@ -45,7 +54,8 @@ export class AddPropertyComponent {
         this.error = message.includes(',') ? message.split(',')[0] : message;
       }
     })
-    
+    this.ngOnInit();
+
   }
 
 

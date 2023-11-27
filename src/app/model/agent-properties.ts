@@ -1,3 +1,5 @@
+import { Address } from "./address";
+
 export interface AgentProperties {
   id?: number;
   agentName?: string;
@@ -10,11 +12,10 @@ export interface AgentProperties {
   zipcode: number;
   propertyList?: [
     {
+      propertyId:number,
       propertyName: string;
       price: number;
-      address: string;
-      city: string;
-      zipcode: number;
+      address:Address;
     }
   ];
 }

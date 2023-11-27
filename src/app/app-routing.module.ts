@@ -16,6 +16,7 @@ import { UserPageComponent } from './component/user-page/user-page.component';
 import { AgentPageComponent } from './component/agent-page/agent-page.component';
 import { UpdatePropertyComponent } from './component/update-property/update-property.component';
 import { AgentPropertiesComponent } from './component/agent-properties/agent-properties.component';
+import { ApprovePropertyComponent } from './component/approve-property/approve-property.component';
 
 
 const routes: Routes = [                                                                                                                                                                                                                                
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:'user',component:UserPageComponent},
   {path:'agentPage',component:AgentPageComponent},
   {path:'updateProperty',component:UpdatePropertyComponent},
-  {path:'agentProperties',component:AgentPropertiesComponent}
+  {path:'agentProperties',component:AgentPropertiesComponent},
+  {path:'approveProperty',component:ApprovePropertyComponent}
   
 ];
 

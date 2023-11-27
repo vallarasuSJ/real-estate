@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AgentProperties } from 'src/app/model/agent-properties';
 import { PropertyDetail } from 'src/app/model/property';
 import { AdminService } from 'src/app/service/admin.service';
+import { AgentService } from 'src/app/service/agent.service';
+import { BookingService } from 'src/app/service/booking.service';
 import { PropertyService } from 'src/app/service/property.service';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-properties',
@@ -10,7 +14,7 @@ import { PropertyService } from 'src/app/service/property.service';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit{
-  error: string = '';
+  error: String = '';
   properties: PropertyDetail[] = [];
   property:PropertyDetail={
     id:0,
@@ -19,9 +23,11 @@ export class PropertiesComponent implements OnInit{
     address:"",
     city:"",
     zipcode:0,
+    approve:false
   }
+  constructor(private propertyService: PropertyService,private adminService:AdminService,private router:Router) {
 
-  constructor(private propertyService: PropertyService,private adminService:AdminService,private router:Router) {}
+  }
 
   ngOnInit(): void {
     this.propertyService.getPropertyDetails().subscribe({
@@ -59,21 +65,6 @@ export class PropertiesComponent implements OnInit{
     })
   }
 
-  approveProperty(property:PropertyDetail){
-   
-      this.adminService.approveProperty(property).subscribe({
-        next:(response)=>{
-          console.log(response.data);
-          
-        },
-        error: (err:any) => {
-          let message: string = err?.error?.error?.message;
-          this.error = message.includes(",") ? message.split(",")[0] : message;
-        },
-      })
-
-  }
-
   editProperty(id:number){
     this.router.navigate(
       ['/updateProperty'],
@@ -82,4 +73,8 @@ export class PropertiesComponent implements OnInit{
     this.propertyService.editSelectedProperty(id);
   }
 
-}
+
+    
+
+
+    }  

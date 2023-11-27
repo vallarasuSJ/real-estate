@@ -29,20 +29,19 @@
           </td>
           <td> <p>{{ property.city }}</p></td>
           <td><p>{{ property.zipcode }}</p></td>
-         
-              
-          <td class="action-btns">
+
+          <td class="action-btns" *ngIf="property.approve===false">
             <a
-            routerLink="/updateProperty"
-            class="btn btn-secondary btn-block me-2 mt-2 px-2"
-            (click)="editProperty(property.id!)"
-            >Edit</a
+            routerLink="/approveProperty"
+            class="btn btn-danger btn-block me-2 mt-2 px-2"
+            (click)="approveProperty(property)"
+            >Approve</a
           >
-          <a
-            routerLink="/properties"
-            class="btn btn-danger btn-block mt-2"
-            (click)="deleteProperty(property.id!)"
-            >Delete</a
+          </td>
+          <td class="action-btns" *ngIf="property.approve===true">
+            <a
+            class="btn btn-success btn-block me-2 mt-2 px-2"
+            >Approved</a
           >
           </td>
         </tr>

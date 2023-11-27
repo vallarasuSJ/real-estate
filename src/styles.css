@@ -29,7 +29,7 @@ body {
 
 /* text */
 .text-primary {
-  color: var(--secondary-300) !important;
+  color: var(--secondary-500) !important;
 }
 
 /* background */
@@ -172,4 +172,3 @@ body {
   top: 40%;
   left: 45%;
 }
-
