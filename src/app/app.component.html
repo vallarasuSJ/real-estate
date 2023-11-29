@@ -1,62 +1,73 @@
-<div *ngIf="!isLoggedIn"><app-navbar/><router-outlet /></div>
+<div *ngIf="!isLoggedIn"><app-navbar /><router-outlet /></div>
 
 <div *ngIf="isLoggedIn" class="container-fluid vh-100 d-flex flex-column">
-  
   <!-- <div *ngIf="!isAdmin && !isAgent">
     <app-user-page></app-user-page><router-outlet />
   </div> -->
-  <div *ngIf="isAgent">
-    <app-agent-page/><router-outlet/>
-  </div>
+  <div *ngIf="isAgent"><app-agent-page /><router-outlet /></div>
   <div *ngIf="isAdmin" class="row">
     <header class="navbar sticky-top bg-primary p-2 shadow">
-      <div class="navbar-nav px-4 text-white" (click)="toggleSidebar()"   role="button">
-        <i class="fa-solid fa-solid fa-right-from-bracket text-white"></i>
+      <div class="navbar-nav px-4 text-white">
+        <a class="navbar-brand d-flex" routerLink="/">
+          <i class="fa fa-house text-white pt-1 pe-2 w-50 h-50"></i>
+          <h3>Real Estate</h3>
+        </a>
       </div>
     </header>
   </div>
-  <div *ngIf="isAdmin && showSidebar" class="row flex-grow-1">
+  <div *ngIf="isAdmin" class="row flex-grow-1">
     <div class="sidebar border border-right col-2 p-0">
       <div class="bg-body-tertiary h-100" tabindex="-1">
         <div class="d-flex flex-column p-0 pt-3 overflow-y-auto">
           <ul class="nav flex-column">
-            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
+            <li
+              class="nav-item d-flex align-items-center px-4 sideBarItem"
+              routerLink="/admin"
+            >
               <i class="fa-solid text-primary fa-house"></i>
-              <a class="nav-link d-flex text-primary align-items-center" routerLink="/admin">
+              <a class="nav-link d-flex text-primary align-items-center">
                 Dashboard
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
+            <li
+              class="nav-item d-flex align-items-center px-4 sideBarItem"
+              routerLink="/approveProperty"
+            >
               <i class="fa-solid text-primary fa-book"></i>
-              <a
-                class="nav-link text-primary d-flex align-items-center"
-                routerLink="/properties"
-                >properties
-              </a>
-            </li>
-            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
-              <i class="fa-solid text-primary fa-book"></i>
-              <a
-                class="nav-link d-flex text-primary align-items-center"
-                routerLink="/approveProperty"
+              <a class="nav-link d-flex text-primary align-items-center"  routerLink="/approveProperty"
                 >Approve
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
+            <li
+              class="nav-item d-flex align-items-center px-4 sideBarItem"
+              routerLink="/agents"
+            >
               <i class="fa-solid text-primary fa-user"></i>
-              <a
-                class="nav-link d-flex text-primary align-items-center"
-                routerLink="/customerBookings"
+              <a class="nav-link d-flex text-primary align-items-center"   routerLink="/agents"
+                >Agents</a
+              >
+            </li>
+            <li
+              class="nav-item d-flex align-items-center px-4 sideBarItem"
+              routerLink="/customerBookings"
+            >
+              <i class="fa-solid text-primary fa-user"></i>
+              <a class="nav-link d-flex text-primary align-items-center" routerLink="/customerBookings"
                 >customers</a
               >
             </li>
-            <div
-              class="navbar-nav px-4 text-white"
+            <li
+              class="nav-item d-flex align-items-center px-4 sideBarItem"
               (click)="logout()"
               role="button"
             >
-              <i class="fa-solid fa-solid fa-right-from-bracket text-white"></i>
-            </div>
+              <i
+                class="fa-solid fa-solid fa-right-from-bracket text-primary"
+              ></i>
+              <a class="nav-link d-flex text-primary align-items-center"
+                >Logout</a
+              >
+            </li>
           </ul>
         </div>
       </div>

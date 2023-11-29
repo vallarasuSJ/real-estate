@@ -23,6 +23,8 @@ export class PropertyDetailsComponent implements OnInit {
     private categoryService:CategoryService
   ) {
     this.propertyDetail = propertyService.getSelectedProperty();
+    console.log(this.propertyDetail);
+    
     this.agentProperty = agentService.getSelectedProperty();
   }
   role:String='';

@@ -8,4 +8,5 @@ export interface bookedProperties{
     price:string;
     contactNumber:number;
     customerId:number;
+    propertyId:number;
 }

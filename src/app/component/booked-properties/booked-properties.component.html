@@ -1,6 +1,6 @@
 <div class="container">
-  <table class="table table-bordered property-table">
-    <thead class="thead-light table-head">
+  <table class="table table-bordered property-table" >
+    <thead class="thead-light table-head" *ngIf="booked.length!==0">
       <tr>
         <th>Image</th>
         <th>Property Name</th>
@@ -12,25 +12,49 @@
         <th>Action</th>
       </tr>
     </thead>
+   
     <tbody *ngFor="let booking of booked">
       <tr *ngIf="userId===booking.customerId">
         <td><img
-          src="https://images.nobroker.in/images/8a9fa78288766a5d0188768a32051237/8a9fa78288766a5d0188768a32051237_15372_566993_medium.jpg"
+          src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{booking.propertyId}}" 
+          style="width: 100px;height: 100px;"
           alt="Property Image"
           class="property-image"
         /></td>
         <td>{{booking.propertyName}}</td>
-        <td>${{booking.price}}</td>
+        <td>₹{{booking.price}}</td>
         <td>{{booking.address}}</td>
         <td>{{booking.city}}</td>
         <td>{{booking.name}}</td>
         <td>{{booking.contactNumber}}</td>
-        <td><button class="cancel-btn">Cancel Booking</button></td>
+        <td><button class="cancel-btn" data-bs-toggle="modal" data-bs-target="#cancelBookingModel">Cancel Booking</button></td>
       </tr>
-      <!-- Add more rows for additional properties -->
+      <div class="modal fade" id="cancelBookingModel" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark" id="cancelBookingModelLabel">Confirmation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-primary">
+              Are you sure you want cancel booking?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-success"  (click)="cancelBooking(booking.propertyId)" routerLink="/bookedProperties" data-bs-dismiss="modal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </tbody>
+  
   </table>
 </div>
+<div class="col-md-6 booking-image" *ngIf="booked.length===0">
+  <ng-lottie [options]="options"></ng-lottie>
+</div>
+
+
 
 
 

@@ -16,7 +16,7 @@
   h4 {
     color: grey;
   }
-  
+
   .card-img-overlay {
     display: flex;
     align-items: center;
@@ -28,31 +28,45 @@
   .card-title-overlay {
     font-size: 1.5rem;
   }
-  .category{
-    width:200px;
-    height:200px;
+  .category {
+    width: 200px;
+    height: 200px;
   }
   .card {
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .card:hover {
-      overflow: visible;
-      transform: scale(1.1);
-      z-index: 1;
-      color:aqua;
-    }
-    .card-body {
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .content{
-      text-align: center;
-    }
-    .container{
-      background-color: rgb(207, 221, 233);
-    }
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .card:hover {
+    overflow: visible;
+    transform: scale(1.1);
+    z-index: 1;
+    color: aqua;
+  }
+  .card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .headline {
+    background-color: rgb(207, 221, 233);
+
+  }
+  h2 {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  .featuredProperty{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  .container-property {
+    padding-top: 90px;
+    background-color: rgb(207, 221, 233);
+  }
+  h1{
     
+    font-weight: bold;
+  }
+  
 </style>
 
 <div class="container-fluid home-container">
@@ -75,31 +89,129 @@
       />
     </div>
 
-
-<div class="container mt-4">
-  <div class="container headline">
-    <h1>Property types</h1>
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="card card-img mx-3 my-3" *ngFor="let category of categories" style="width: 15rem;" routerLink="/categories" (click)="setCategoryId(category.categoryId)">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAZlBMVEX///8AAAAJCQkuLi7FxcV4eHh8fHz8/Pz19fXm5ubQ0NDMzMzt7e3d3d2wsLCnp6dnZ2eXl5dXV1cmJibW1tZDQ0OHh4dQUFC7u7ttbW1LS0thYWGRkZE0NDSfn585OTkWFhYcHBzCoFe+AAAEiElEQVR4nO2a63aqMBCFReUmeKmCotaq7/+SR1sziTCbJAq0a53Zv87RCF+TyZ6ZwGgkEolEIpFI9J8pz6Ld6bSLpjkesgwb+pz3yLQ8BQ+dlmBIMgkYjWd9IaWleZ8yZQd9cUxBcOiJKavNwYT96yMeKuiHadm8EbeEg0J9cHf6+FWofMXfatXYhcNB5Wtwq2BdpxoMaoaQ7qqF+1BQVRtTMK5+ASretjLd9BkPDgVC3NR+YKj52c705O4DQBUbF6abu1PG7R+KcXGkxVBQILnyWg4ClRzZq28KsKaruH+oOe/iu1v0zHfsV8e0b6iCv/bPdMS8T4zn/UIt+EtTWcAWDcGl6hEq/uRnYqGHLMbskGXYF1TMh/jlKffOLuyga09Q6YG97CF1GtYPVMbv+H3y+D5W+TfZDwYFQpxKgXi/p3/yodc5FLjPhUL8bl9rynQLPrC6hQIrspmqAT9uvinU/6eOGfsNqHnJXnBHIU5rSzOX8u7eHdQMJDVqDowM/aU+Q41OR1AoxNX3yVM2XKvdOHIK9xeZwLX1QtXWtmwuatdQOe/i+sBg2vySwn/GHrW8DZXzIb6h2VgyuW5MhwmpdRO+wFTxfhOpuElAng1pAKoOXocC7WZECQXusBUlHwuVLxK6HrW+xRXf7Eo+2t5IezKBpdEu3u7ajuP8mECMlsoxY2tP86VWGewWfyiwm7WLo1LSUKjGtri7DxMIhC3No1Mlp+s/eBriwQSuQS7u2rbrsgG5uzMS2OmbTA3waNvJR22Fq0UgLs9qLWK+jwL6UOGe8gc1JX5IYQjsYG3SfDaEOlrsfzJFJFqgcduqPxi07S2iKhkc/l0qxNL+Ox3irYevSFRS2EozVjlfi+sZ9ghxUxTuU97+wpbAAu5T0vx79E7Pok7MWu7XBTpuyviJdzhpUZUM/OYKHrKBBacQL5wOX5HOyketYWvIOhYUfM7Sm8zWbGsmkDPJxb0OOnlR+5Xx3+9rVLb48zq0gKKcAlrV8umZMmg3yYxBT+Oto9r6IC2YT1WB+1Daml27YTI2GUqg5Gi27ys+87wk/XALzcTPTPLuQ6XQ647JizYZKMrujgaebp6oPOskxE3Rw63ixH5/o+LveaRt+ZZj8jrTJuPDfT9i42VrmeI3tWl39/GIMyhy8Q4ckxf5KOfuJde3kFl0HOKmqIRiCrSqeWdy8dzxhPA17ZSPNtz9zhs/f0im63dI7y9qCmvpYvcdz4l5d5pW5jCsa1E9ay7W4ZHaUv0RuXhvIW6Kwt1wdypBs4cvTFShYj3r6kh0+qbedxpTqaQ2pja1N+peP61rJv1Uft5zcqg76KGYjLOE74qt9o7TvCqMuu8XoEbxrGp/b/A3oKwSKIESKIESKIH6C1DHqPk+fhhG7uchPUCZNZmpzPn0oQ8ocDA/FSiBEiiBEiiBEiiBEiiBEiiBEiiBEqj/Cuo6FNTFA8r1XYS3oVYeUOBdou6hwFESK9ur7V1BRY33uFrl8BL1XQjK7dch/2usbHWaWHVCJ3kuv135rJ1IJBKJRCLRX9U/50JNEoURwooAAAAASUVORK5CYII="
-        class="card-img-top card-text"
-        alt="..."
-      />
-      <div class="card-body card-img-overlay">
-        <h5 class="card-text  mt-4">{{ category.categoryName }}</h5>
+    <div class="container headline pt-5 pb-5">
+      <div class="container">
+        <h2 style="color:black">Property types</h2>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div
+          class="card card-img mx-3 my-4"
+          *ngFor="let category of categories"
+          style="width: 11rem; height: 12rem"
+          routerLink="/categories"
+          (click)="setCategoryId(category.categoryId)"
+        >
+          <img
+            *ngIf="category.categoryId === 1"
+            src="../../../assets/images/small house category.png"
+            class="card-img-top card-text"
+            alt="..."
+          />
+          <img
+            *ngIf="category.categoryId === 2"
+            src="../../../assets/images/town category.png"
+            class="card-img-top card-text"
+            alt="..."
+          />
+          <img
+            *ngIf="category.categoryId === 3"
+            src="../../../assets/images/shop category.png"
+            class="card-img-top card-text"
+            alt="..."
+          />
+          <img
+            *ngIf="category.categoryId === 4"
+            src="../../../assets/images/townhouse category.png"
+            class="card-img-top card-text"
+            alt="..."
+          />
+          <img
+            *ngIf="category.categoryId === 5"
+            src="../../../assets/images/villa category.png"
+            class="card-img-top card-text"
+            alt="..."
+          />
+          <h5 class="card-text text-center text-muted">
+            {{ category.categoryName }}
+          </h5>
+        </div>
       </div>
     </div>
   </div>
+  <section>
+    <div class="container d-flex footer justify-content-around mt-5">
+      <div class="container">
+        <div>
+          <p class="mt-4 heading" style="letter-spacing: 1px; font-weight: bold; font-size: 30px; text-align: center;">
+            DreamHome
+          </p>
+          <p style="text-align: justify">
+            Offering premier real estate services since 1998, dedicated to finding your perfect home.
+          </p>
+        </div>
+        <div>
+        
+          <div class="d-flex mt-4 justify-content-evenly">
+            <i class="fab fa-facebook social-icon"></i>
+            <i class="fab fa-twitter social-icon"></i>
+            <i class="fab fa-instagram social-icon"></i>
+            <i class="fab fa-linkedin social-icon"></i>
+          </div>
+        </div>
+      </div>
+    
+      <div class="container">
+        <div>
+          <p class="mt-4 heading " style="letter-spacing: 1px; font-weight: bold; font-size: 30px; text-align: center;">
+            Services
+          </p>
+          <ul style="text-align: justify-content-center" class="ps-5 ms-4 text-align">
+            <li>Property Listings</li>
+            <li>Real Estate Consultation</li>
+            <li>Home Valuation</li>
+            <li>Investment Opportunities</li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="container me-4">
+        <div>
+          <p class="mt-4 heading " style="letter-spacing: 1px; font-weight: bold; font-size: 30px; text-align: center;">
+            Contact Details
+          </p>
+          <ul class="contact-details" style="text-align: justify">
+            <li style="font-weight: bold">
+              Phone: <span style="font-weight: lighter">+1 123 456 7890</span>
+            </li>
+            <li style="font-weight: bold">
+              Email: <span style="font-weight: lighter">info@dreamhome.com</span>
+            </li>
+            <li style="font-weight: bold">
+              Location: <span style="font-weight: lighter">1234 Main Street, City, Country</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="container">
+        <div>
+          <p class="mt-4 heading" style="letter-spacing: 1px; font-weight: bold; font-size: 30px; text-align: center;">
+            Contact Us
+          </p>
+          
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Your Email" />
+          </div>
+          <div class="input-group mb-3">
+            <textarea class="form-control" placeholder="Your Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
 </div>
 
-<div class="container">
-  <div class="content">
-    <h1>Latest properties</h1>
-    <p>Browse for the perfect place to live by looking through listings, areas, neighborhoods, and insider tips provided by residents.</p>
-  </div>
-  <div>
-    <app-properties/>
-  </div>
-</div>
+

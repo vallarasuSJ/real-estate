@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   };
 
   username:string="";
-  contact:number=0;
+  contact:number| null=null;
   password:string="";
   selectedRole:string="";
   confirmPassword:string="";
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   constructor(private authService:AuthService){}
   ngOnInit(): void {
     this.authService.getRole().subscribe({
-      next:(response)=>{
+      next:(response)=>{  
         this.roles=response.data;
       },
       error:(err)=>{
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       }
     })
     this.username="",
-    this.contact=0,
+    this.contact,
     this.password="",
     this.selectedRole="",
     this.confirmPassword=""
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     let register:Register={
       username:this.username,
       name:this.username,
-      contact:this.contact,
+      contact:this.contact!,
       password:this.password,
       role:this.selectedRole
     }

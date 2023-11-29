@@ -1,15 +1,24 @@
-
-  .product-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:white;
-    height: 80%;
-    padding: 100px;
-    margin: 90px;
-    margin-top: 180px;
+  .card-img-top {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 100%;
+    object-fit: cover;
   }
-  .product-image {
-    max-width: 300px;
-    margin-right: 20px;
+  
+  .card-body {
+    padding: 1.5rem;
   }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  .productDetail{
+    margin-top: 100px;
+  }
+  

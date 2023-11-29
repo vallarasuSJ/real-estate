@@ -41,12 +41,22 @@
                   required
                   minlength="3"
                   #modelUserName="ngModel"
-                  [ngClass]="!modelUserName.dirty ? 'is-invalid' : ''"
+                  [ngClass]="
+                    modelUserName.dirty && modelUserName.invalid
+                      ? 'is-invalid'
+                      : ''
+                  "
                 />
-                <div *ngIf="modelUserName.invalid" class="invalid-feedback">
+                <div
+                  *ngIf="modelUserName?.errors?.['required'] && modelUserName.dirty"
+                  class="invalid-feedback"
+                >
                   please enter username
                 </div>
-                <div *ngIf="modelUserName.errors?.['minlength']">
+                <div
+                  *ngIf="modelUserName.errors?.['minlength']"
+                  class="text-danger !"
+                >
                   username must be at least 3 characters long.
                 </div>
               </div>
@@ -63,12 +73,22 @@
                   required
                   pattern="[0-9]{10}"
                   #modelContact="ngModel"
-                  [ngClass]="!modelContact.dirty ? 'is-invalid' : ''"
+                  [ngClass]="
+                    modelContact.dirty && modelContact.invalid
+                      ? 'is-invalid'
+                      : ''
+                  "
                 />
-                <div *ngIf="modelContact.invalid" class="invalid-feedback">
+                <div
+                  *ngIf="modelContact?.errors?.['required'] && modelContact.dirty"
+                  class="invalid-feedback"
+                >
                   please enter contact number
                 </div>
-                <div *ngIf="modelContact.errors?.['pattern']">
+                <div
+                  *ngIf="modelContact.errors?.['pattern']"
+                  class="text-danger !"
+                >
                   contact number must be 10 digits long and contains only
                   numbers.
                 </div>
@@ -101,13 +121,16 @@
                   type="password"
                   class="form-control mb-2"
                   id="password"
-                  placeholder="Enter password"
                   name="password"
                   [(ngModel)]="password"
                   required
                   minlength="4"
                   #modelPassword="ngModel"
-                  [ngClass]="modelPassword.invalid ? 'is-invalid' : ''"
+                  [ngClass]="
+                    modelPassword.invalid && modelPassword.dirty
+                      ? 'is-invalid'
+                      : ''
+                  "
                 />
                 <div
                   class="invalid-feedback"
@@ -119,7 +142,7 @@
                 </div>
                 <div
                   class="invalid-feedback"
-                  *ngIf="modelPassword.invalid && !modelPassword.dirty"
+                  *ngIf="modelPassword?.errors?.['required'] && modelPassword.dirty "
                 >
                   Please enter password
                 </div>
@@ -138,23 +161,24 @@
                   minlength="4"
                   #modelConfirmPassword="ngModel"
                   [ngClass]="
-                    modelConfirmPassword.invalid ||
-                    modelConfirmPassword.value !== modelPassword.value
+                    modelConfirmPassword.dirty &&
+                    modelPassword.value !== modelConfirmPassword.value
                       ? 'is-invalid'
-                      : ''
-                  "
+                      : ''"
                 />
                 <div
                   *ngIf="
-                    modelConfirmPassword.invalid ||
-                    modelPassword.value !== modelConfirmPassword.value
+                    modelPassword.value !== modelConfirmPassword.value &&
+                    modelConfirmPassword.dirty &&
+                    modelConfirmPassword.value
                   "
+                  class="text-danger"
                   class="invalid-feedback"
                 >
                   Password mismatch
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary my-3">
+              <button type="submit"  routerLink="/login"  class="btn btn-primary my-3">
                 Register
               </button>
             </form>

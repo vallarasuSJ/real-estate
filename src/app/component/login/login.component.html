@@ -39,13 +39,13 @@
                   required 
                   minlength="3"
                   #modelUserName="ngModel" 
-                  [ngClass]="!modelUserName.dirty ? 'is-invalid':''" 
+                  [ngClass]="modelUserName.dirty && modelUserName.invalid  ? 'is-invalid':''" 
                  
                 />
-                <div *ngIf="modelUserName.invalid" class="invalid-feedback">
+                <div *ngIf="modelUserName?.errors?.['required'] && modelUserName.dirty" class="invalid-feedback">
                   please enter username
                 </div>
-                <div *ngIf="modelUserName.errors?.['minlength']">
+                <div *ngIf="modelUserName.errors?.['minlength']" class="text-danger !">
                   username must be at least 3 characters long.
                 </div>
               </div>
@@ -63,10 +63,10 @@
                   required 
                   minlength="4"
                   #modelPassword="ngModel" 
-                  [ngClass]="!modelPassword.dirty ? 'is-invalid':''" 
+                  [ngClass]="modelPassword.dirty && modelPassword.invalid ? 'is-invalid':''" 
                 />
-              <div *ngIf="modelPassword.invalid" class="invalid-feedback"> please enter password</div>
-            <div *ngIf="modelPassword.errors?.['minlength']">
+              <div *ngIf="modelPassword?.errors?.['required'] && modelPassword.dirty" class="invalid-feedback "> please enter password</div>
+            <div *ngIf="modelPassword.errors?.['minlength']" class="text-danger !">
               Password must be at least 4 characters long.
             </div>
 

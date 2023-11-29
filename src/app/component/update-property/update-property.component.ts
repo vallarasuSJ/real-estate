@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from '@angular/forms';
+import { Form, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyDetail } from 'src/app/model/property';
 import { PropertyService } from 'src/app/service/property.service';

@@ -5,6 +5,7 @@ import { PropertyDetail } from 'src/app/model/property';
 import { AdminService } from 'src/app/service/admin.service';
 import { AgentService } from 'src/app/service/agent.service';
 import { BookingService } from 'src/app/service/booking.service';
+import { CategoryService } from 'src/app/service/category.service';
 import { PropertyService } from 'src/app/service/property.service';
 import { StorageService } from 'src/app/service/storage.service';
 
@@ -25,8 +26,7 @@ export class PropertiesComponent implements OnInit{
     zipcode:0,
     approve:false
   }
-  constructor(private propertyService: PropertyService,private adminService:AdminService,private router:Router) {
-
+  constructor(private propertyService: PropertyService,private adminService:AdminService,private router:Router,private categoryService:CategoryService) {
   }
 
   ngOnInit(): void {
@@ -47,6 +47,7 @@ export class PropertiesComponent implements OnInit{
         this.error=message.includes(",")?message.split(",")[0]:message;
       }
     })
+    
   }
   setSelectedProperty(property:PropertyDetail):void{
     this.propertyService.setSelectedProperty(property);

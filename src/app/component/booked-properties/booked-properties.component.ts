@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 import { bookedProperties } from 'src/app/model/booked';
 import { BookingService } from 'src/app/service/booking.service';
 import { StorageService } from 'src/app/service/storage.service';
@@ -9,6 +10,9 @@ import { StorageService } from 'src/app/service/storage.service';
   styleUrls: ['./booked-properties.component.css'],
 })
 export class BookedPropertiesComponent implements OnInit {
+  options: AnimationOptions = {
+    path: '/assets/bookingsEmpty.json',
+  };
   userId:number=0;
   error: String = '';
   booked: bookedProperties[] = [];

@@ -14,4 +14,6 @@ export interface PropertyDetail {
   approve?:boolean;
   categoryId?:number;
   photo?:FileType;
+  agentName?:string;
+  contactNumber?:number;
 }

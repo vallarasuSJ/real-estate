@@ -19,9 +19,12 @@
               ngModel
               required
               #modelPropertyName="ngModel"
-              [ngClass]="!modelPropertyName.dirty ? 'is-invalid' : ''"
+              [ngClass]= "modelPropertyName.dirty && modelPropertyName.invalid
+              ? 'is-invalid'
+              : ''
+          "
             />
-            <div *ngIf="modelPropertyName.invalid" class="invalid-feedback">
+            <div *ngIf="modelPropertyName?.errors?.['required'] && modelPropertyName.dirty " class="invalid-feedback">
               please enter property name
             </div>
           </div>
@@ -44,7 +47,7 @@
             </select>
             <div
               class="invalid-feedback"
-              *ngIf="!categoryId"
+              *ngIf="!categoryId "
             >
               Please select a category
             </div>
@@ -60,9 +63,12 @@
               ngModel
               required
               #modelAddress="ngModel"
-              [ngClass]="!modelAddress.dirty ? 'is-invalid' : ''"
+              [ngClass]="modelAddress.dirty && modelAddress.invalid
+              ? 'is-invalid'
+              : ''
+          "
             />
-            <div *ngIf="modelAddress.invalid" class="invalid-feedback">
+            <div *ngIf="modelAddress?.errors?.['required'] && modelAddress.dirty" class="invalid-feedback">
               please enter Address
             </div>
           </div>
@@ -77,9 +83,12 @@
               ngModel
               required
               #modelCity="ngModel"
-              [ngClass]="!modelCity.dirty ? 'is-invalid' : ''"
+              [ngClass]="modelCity.dirty && modelCity.invalid
+              ? 'is-invalid'
+              : ''
+          "
             />
-            <div *ngIf="modelCity.invalid" class="invalid-feedback">
+            <div *ngIf="modelCity?.errors?.['required'] && modelCity.dirty" class="invalid-feedback">
               please enter city
             </div>
           </div>
@@ -94,9 +103,12 @@
               ngModel
               required
               #modelZipcode="ngModel"
-              [ngClass]="!modelZipcode.dirty ? 'is-invalid' : ''"
+              [ngClass]="modelZipcode.dirty && modelZipcode.invalid
+              ? 'is-invalid'
+              : ''
+          "
             />
-            <div *ngIf="modelZipcode.invalid" class="invalid-feedback">
+            <div *ngIf="modelZipcode?.errors?.['required'] && modelZipcode.dirty" class="invalid-feedback">
               please enter zipcode
             </div>
           </div>
@@ -110,9 +122,12 @@
               ngModel
               required
               #modelPrice="ngModel"
-              [ngClass]="!modelPrice.dirty ? 'is-invalid' : ''"
+              [ngClass]="modelPrice.dirty && modelPrice.invalid
+              ? 'is-invalid'
+              : ''
+          "
             />
-            <div *ngIf="modelPrice.invalid" class="invalid-feedback">
+            <div *ngIf="modelPrice?.errors?.['required'] && modelPrice.dirty" class="invalid-feedback">
               please enter price
             </div>
           </div>

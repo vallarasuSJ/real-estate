@@ -26,10 +26,10 @@
   background-color:rgb(25, 36, 46);
 }
 
-.cancel-btn:hover {
-  background-color: #c82333;
-  margin: 60px;
+.booking-image{
+  margin-left: 400px;
 }
+
 
   /*navbar*/
   .navbar {
