@@ -5,6 +5,7 @@ import { Agents } from 'src/app/model/agents';
 import { PropertyDetail } from 'src/app/model/property';
 import { AdminService } from 'src/app/service/admin.service';
 import { AgentService } from 'src/app/service/agent.service';
+import { AuthService } from 'src/app/service/auth.service';
 import { PropertyService } from 'src/app/service/property.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class ApprovePropertyComponent implements OnInit {
   constructor(
     private propertyService: PropertyService,
     private adminService: AdminService,
-    private router: Router
+    private router: Router,
+    private authService:AuthService
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +63,9 @@ export class ApprovePropertyComponent implements OnInit {
         this.error = message.includes(',') ? message.split(',')[0] : message;
       },
     });
+  }
+  
+  logout(): void {
+    this.authService.logout();
   }
 }

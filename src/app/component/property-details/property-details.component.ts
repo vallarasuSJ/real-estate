@@ -6,6 +6,8 @@ import { AgentPageComponent } from '../agent-page/agent-page.component';
 import { AgentService } from 'src/app/service/agent.service';
 import { BookingService } from 'src/app/service/booking.service';
 import { StorageService } from 'src/app/service/storage.service';
+import { Category } from 'src/app/model/category';
+import { CategoryService } from 'src/app/service/category.service';
 
 @Component({
   selector: 'app-property-details',
@@ -18,6 +20,7 @@ export class PropertyDetailsComponent implements OnInit {
     private agentService: AgentService,
     private bookingService: BookingService,
     private storageService: StorageService,
+    private categoryService:CategoryService
   ) {
     this.propertyDetail = propertyService.getSelectedProperty();
     this.agentProperty = agentService.getSelectedProperty();
@@ -42,6 +45,8 @@ export class PropertyDetailsComponent implements OnInit {
     zipcode: 0,
   };
 
+
+
   ngOnInit(): void {
     this.role= this.storageService.getLoggedInUser().role;
   }
@@ -58,5 +63,6 @@ export class PropertyDetailsComponent implements OnInit {
         this.error = message.includes(',') ? message.split(',')[0] : message;
       },
     });
+    this.ngOnInit();
   }
 }

@@ -1,31 +1,37 @@
-
-
-<!-- booked properties  -->
-<div class="container px-5">
-  <h1>Booked Properties</h1>
-
-  <div class="row">
-    <!-- Left side - Booked Properties -->
-    <div class="col-md-12" *ngFor="let booking of booked">
-      <!-- Property 1 -->
-      <div class="property-list " *ngIf="userId===booking.customerId">
-        <img
+<div class="container">
+  <table class="table table-bordered property-table">
+    <thead class="thead-light table-head">
+      <tr>
+        <th>Image</th>
+        <th>Property Name</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Agent Name</th>
+        <th>Contact Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let booking of booked">
+      <tr *ngIf="userId===booking.customerId">
+        <td><img
           src="https://images.nobroker.in/images/8a9fa78288766a5d0188768a32051237/8a9fa78288766a5d0188768a32051237_15372_566993_medium.jpg"
           alt="Property Image"
           class="property-image"
-        />
-        <div class="property-details">
-          <h3>property Name: {{booking.propertyName}}</h3>
-          <p>Address: {{booking.address}}</p>
-          <p>city: {{booking.city}}</p>
-          <p>Price: {{booking.price}}</p>
-        </div>
-        <div class="agent-details">
-          <h3>Agent Name: {{booking.name}}</h3>
-          <p>Contact:  {{booking.contactNumber}}</p>
-        </div>
-        <button class="btn btn-danger cancel-button" (click)="cancelBooking(booking.id)">Cancel Booking</button>
-      </div>
-    </div>
-  </div>
+        /></td>
+        <td>{{booking.propertyName}}</td>
+        <td>${{booking.price}}</td>
+        <td>{{booking.address}}</td>
+        <td>{{booking.city}}</td>
+        <td>{{booking.name}}</td>
+        <td>{{booking.contactNumber}}</td>
+        <td><button class="cancel-btn">Cancel Booking</button></td>
+      </tr>
+      <!-- Add more rows for additional properties -->
+    </tbody>
+  </table>
 </div>
+
+
+
+

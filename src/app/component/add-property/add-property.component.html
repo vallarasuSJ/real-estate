@@ -1,11 +1,13 @@
-
 <div class="container-fluid">
   <div class="row">
     <!-- Left side - Add Property form -->
     <div class="col-md-6">
       <div class="add-property-form text-primary">
         <h2>Add Property</h2>
-        <form #addPropertyForm="ngForm" (ngSubmit)="addProperty(addPropertyForm)">
+        <form
+          #addPropertyForm="ngForm"
+          (ngSubmit)="onSubmit(addPropertyForm)"
+        >
           <div class="form-group">
             <label for="propertyName" class="mb-2">Property Name</label>
             <input
@@ -14,13 +16,37 @@
               id="propertyName"
               placeholder="Enter property name"
               name="propertyName"
-              [(ngModel)]="propertyName"
+              ngModel
               required
               #modelPropertyName="ngModel"
               [ngClass]="!modelPropertyName.dirty ? 'is-invalid' : ''"
             />
             <div *ngIf="modelPropertyName.invalid" class="invalid-feedback">
               please enter property name
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="category" class="mb-2 text-primary">category</label>
+            <select
+              class="form-select form-control mb-2"
+              name="categoryId"
+              ngModel
+              required
+            >
+              <option disabled selected>Select a category</option>
+              <option
+                *ngFor="let category of categories"
+                [value]="category.categoryId"
+              >
+                {{ category.categoryName }}
+              </option>
+            </select>
+            <div
+              class="invalid-feedback"
+              *ngIf="!categoryId"
+            >
+              Please select a category
             </div>
           </div>
           <div class="form-group">
@@ -30,8 +56,8 @@
               class="form-control mb-3"
               id="Address"
               placeholder="Enter Address"
-              name="Address"
-              [(ngModel)]="Address"
+              name="address"
+              ngModel
               required
               #modelAddress="ngModel"
               [ngClass]="!modelAddress.dirty ? 'is-invalid' : ''"
@@ -48,7 +74,7 @@
               id="city"
               placeholder="Enter city"
               name="city"
-              [(ngModel)]="city"
+              ngModel
               required
               #modelCity="ngModel"
               [ngClass]="!modelCity.dirty ? 'is-invalid' : ''"
@@ -65,7 +91,7 @@
               id="zipcode"
               placeholder="Enter zipcode"
               name="zipcode"
-              [(ngModel)]="zipcode"
+              ngModel
               required
               #modelZipcode="ngModel"
               [ngClass]="!modelZipcode.dirty ? 'is-invalid' : ''"
@@ -81,7 +107,7 @@
               class="form-control mb-3"
               id="price"
               name="price"
-              [(ngModel)]="price"
+              ngModel
               required
               #modelPrice="ngModel"
               [ngClass]="!modelPrice.dirty ? 'is-invalid' : ''"
@@ -93,7 +119,7 @@
           <div class="form-group">
             <label for="image" class="mb-2">Image Upload</label>
             <div class="custom-file">
-              <input type="file" class="custom-file-input mb-2" id="image" />
+              <input type="file" class="custom-file-input mb-2" id="customFile" ngModel (change)="onFileChange($event)" />
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
@@ -101,15 +127,12 @@
       </div>
     </div>
 
-    
     <div class="col-md-6 building-image">
       <img
         src="../../../assets/images/real estate project image.png"
         alt="Placeholder Image"
         class="img-fluid"
-      /> 
+      />
     </div>
   </div>
 </div>
-
-

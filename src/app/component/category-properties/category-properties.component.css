@@ -1,0 +1,15 @@
+.card-image{
+    max-width: 100px;
+    height: auto;
+}
+.card-img-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+  }
+  .card-title-overlay {
+    font-size: 1.5rem;
+  }

@@ -13,9 +13,6 @@ import { Register } from '../model/register';
   providedIn: 'root',
 })
 export class AuthService {
-  
- 
- 
 
   private isAdminSubject = new BehaviorSubject<boolean>(false);
   private isAgentSubject= new BehaviorSubject<boolean>(false);
@@ -73,15 +70,16 @@ export class AuthService {
   setLoggedIn(user: AppUser): void {
     this.storageService.setLoggedInUser(user);
     this.isLoggedInSubject.next(true);
-
+    let route: string | null = this.storageService.getRoute();
     if (user.role === CONSTANT.USER) {
-      this.router.navigate(['/'], { replaceUrl: true });
+      this.router.navigate(["/"], { replaceUrl: true });
     } else if (user.role === CONSTANT.ADMIN) {
       this.isAdminSubject.next(true);
-      this.router.navigate(['/admin'], { replaceUrl: true });
-    }else if(user.role===CONSTANT.AGENT){
+      this.router.navigate(["/"], { replaceUrl: true });
+    }
+    else if (user.role === CONSTANT.AGENT) {
       this.isAgentSubject.next(true);
-      this.router.navigate(['/'],{replaceUrl:true});
+      this.router.navigate(["/"], { replaceUrl: true });
     }
   }
 

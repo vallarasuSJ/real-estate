@@ -33,6 +33,8 @@ export class PropertiesComponent implements OnInit{
     this.propertyService.getPropertyDetails().subscribe({
       next:(response)=>{
         let propertyDetails:PropertyDetail[]=response.data;
+        console.log(propertyDetails);
+        
         if(propertyDetails.length>0){
           this.properties=propertyDetails;
           this.property=response.data[0];

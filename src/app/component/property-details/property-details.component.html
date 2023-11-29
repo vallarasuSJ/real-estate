@@ -9,14 +9,14 @@
         class="img-fluid product-image"
       />
     </div>
-    <div class="col-md-6" *ngIf="propertyDetail || agentProperty">
+    <div class="col-md-6" *ngIf="propertyDetail || agentProperty ">
       <h2>Product Name : {{propertyDetail.propertyName || agentProperty.propertyName}}</h2>
       <p>Price: {{propertyDetail.price || agentProperty.price}}</p>
       <p>Address: {{propertyDetail.address || agentProperty.address}}</p>
       <p>city:{{propertyDetail.city || agentProperty.city}}</p>
       <p>zipcode:{{propertyDetail.zipcode || agentProperty.zipcode}}</p>
 
-      <button class="btn btn-primary" routerLink="/bookedProperties" (click)="bookProperty(propertyDetail)" *ngIf="role==='USER'">Book Now</button>
+      <button class="btn btn-primary"  (click)="bookProperty(propertyDetail)" *ngIf="role==='USER'">Book Now</button>
     </div>
   </div>
 </div>

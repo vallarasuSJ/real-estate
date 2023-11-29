@@ -1,31 +1,21 @@
 <div *ngIf="!isLoggedIn"><app-navbar/><router-outlet /></div>
 
 <div *ngIf="isLoggedIn" class="container-fluid vh-100 d-flex flex-column">
-  <!-- <div class="row">
+  
+  <!-- <div *ngIf="!isAdmin && !isAgent">
+    <app-user-page></app-user-page><router-outlet />
+  </div> -->
+  <div *ngIf="isAgent">
+    <app-agent-page/><router-outlet/>
+  </div>
+  <div *ngIf="isAdmin" class="row">
     <header class="navbar sticky-top bg-primary p-2 shadow">
-      <a class="navbar-brand px-3 text-white" routerLink="/">Shopping</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/agents">agents</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/agentProperties">properties</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/customerBookings">bookings</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/addProperty">AddProperty</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/register">register</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/updateProperty">updateProperty</a>
-      <a class="navbar-brand px-3 text-white" routerLink="/updateProperty">approvePr</a>
-
-      <div class="navbar-nav px-4 text-white" (click)="logout()" role="button">
+      <div class="navbar-nav px-4 text-white" (click)="toggleSidebar()"   role="button">
         <i class="fa-solid fa-solid fa-right-from-bracket text-white"></i>
       </div>
     </header>
   </div>
-   -->
-
-  <div *ngIf="isAgent"><app-agent-page></app-agent-page><router-outlet /></div>
-
-  <div *ngIf="!isAdmin && !isAgent">
-    <app-user-page></app-user-page><router-outlet />
-  </div>
-
-  <div *ngIf="isAdmin" class="row flex-grow-1">
+  <div *ngIf="isAdmin && showSidebar" class="row flex-grow-1">
     <div class="sidebar border border-right col-2 p-0">
       <div class="bg-body-tertiary h-100" tabindex="-1">
         <div class="d-flex flex-column p-0 pt-3 overflow-y-auto">
@@ -36,7 +26,7 @@
                 Dashboard
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center px-4 sideBarActive">
+            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid text-primary fa-book"></i>
               <a
                 class="nav-link text-primary d-flex align-items-center"
@@ -44,7 +34,7 @@
                 >properties
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center px-4 sideBarActive">
+            <li class="nav-item d-flex align-items-center px-4 sideBarItem">
               <i class="fa-solid text-primary fa-book"></i>
               <a
                 class="nav-link d-flex text-primary align-items-center"
@@ -75,8 +65,8 @@
       <router-outlet></router-outlet>
     </main>
   </div>
-  <div *ngIf="!isAdmin">
-    <router-outlet></router-outlet>
+  <div *ngIf="!isAdmin && !isAgent">
+    <app-user-page></app-user-page><router-outlet />
   </div>
 </div>
 

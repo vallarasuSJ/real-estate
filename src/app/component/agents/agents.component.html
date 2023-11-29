@@ -3,13 +3,6 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-6">
-          <div class="image pt-2">
-            <img
-              src="https://i.pinimg.com/originals/76/da/03/76da03c579566626fa270bdb6df1280b.jpg"
-              class="card-img-top"
-              alt="Property Image"
-            />
-          </div>
           <p><strong>Name: </strong> {{ agent.agentName }}</p>
           <p><strong>Contact Number:</strong> {{ agent.contactNumber }}</p>
         </div>
@@ -35,7 +28,7 @@
             <tr *ngFor="let property of agent.propertyList">
               <td>
                 <img
-                  src="https://images.nobroker.in/images/8a9fac838b9d4285018b9deaffcd58b5/8a9fac838b9d4285018b9deaffcd58b5_43680_455875_medium.jpg"
+                  src="{{'http://localhost:8080/api/agent/downloadFile/'}}{{property.id}}"
                   class="card-img-top"
                   alt="Property Image"
                 />

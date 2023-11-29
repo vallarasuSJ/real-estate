@@ -1,4 +1,5 @@
 import { SafeResourceUrl } from "@angular/platform-browser";
+import { FileType } from "./file-type";
 
 export interface PropertyDetail {
   id?: number;
@@ -11,4 +12,6 @@ export interface PropertyDetail {
   addressId?: number;
   customerId?: number;
   approve?:boolean;
+  categoryId?:number;
+  photo?:FileType;
 }

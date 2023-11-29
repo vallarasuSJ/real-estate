@@ -17,6 +17,7 @@ import { AgentPageComponent } from './component/agent-page/agent-page.component'
 import { UpdatePropertyComponent } from './component/update-property/update-property.component';
 import { AgentPropertiesComponent } from './component/agent-properties/agent-properties.component';
 import { ApprovePropertyComponent } from './component/approve-property/approve-property.component';
+import { CategoryPropertiesComponent } from './component/category-properties/category-properties.component';
 
 
 const routes: Routes = [                                                                                                                                                                                                                                
@@ -25,17 +26,17 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'admin', component: AdminHomeComponent, canActivate: [authGuard] },
   {path:'properties',component:PropertiesComponent},
-  {path:'propertyDetails',component:PropertyDetailsComponent},
-  {path:'addProperty',component:AddPropertyComponent},
+  {path:'propertyDetails',component:PropertyDetailsComponent,  canActivate: [authGuard]},
+  {path:'addProperty',component:AddPropertyComponent,  canActivate: [authGuard]},
   {path:'agents',component:AgentsComponent},
-  {path:'customerBookings',component:CustomerBookingsComponent},
-  {path:'bookedProperties',component:BookedPropertiesComponent},
-  {path:'user',component:UserPageComponent},
-  {path:'agentPage',component:AgentPageComponent},
-  {path:'updateProperty',component:UpdatePropertyComponent},
-  {path:'agentProperties',component:AgentPropertiesComponent},
-  {path:'approveProperty',component:ApprovePropertyComponent}
-  
+  {path:'customerBookings',component:CustomerBookingsComponent,  canActivate: [authGuard],},
+  {path:'bookedProperties',component:BookedPropertiesComponent , canActivate: [authGuard]},
+  {path:'user',component:UserPageComponent, canActivate: [authGuard]},
+  {path:'agentPage',component:AgentPageComponent, canActivate: [authGuard]},
+  {path:'updateProperty',component:UpdatePropertyComponent, canActivate: [authGuard]},
+  {path:'agentProperties',component:AgentPropertiesComponent, canActivate: [authGuard]},
+  {path:'approveProperty',component:ApprovePropertyComponent, canActivate: [authGuard]},
+  {path:'categories',component:CategoryPropertiesComponent}
 ];
 
 @NgModule({

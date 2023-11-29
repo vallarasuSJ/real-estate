@@ -1,34 +1,35 @@
-  /*booked properties*/
-.property-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: white;
+.property-table {
+  margin-top: 100px;;
+  width: 100%;
+}
 
-  }
-  .property-details {
+.property-table img {
+  max-width: 100px;
+  border-radius: 6px;
+}
 
-    width: 50%;
-    padding-left: 100px;
+.property-table th,
+.property-table td {
+  text-align: center;
+  vertical-align: middle;
+}
 
-  }
-  .agent-details{
-      padding-right: 100px;
-  }
-  .property-image {
-    width: 150px; /* Adjust as needed */
-    height: auto;
-  }
-  .container {
-  margin-top: 90px;
-  }
-  h1{
-    color: #fdfdfd;
-  }
+.cancel-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding:8px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+.table-head{
+  background-color:rgb(25, 36, 46);
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+  margin: 60px;
+}
 
   /*navbar*/
   .navbar {

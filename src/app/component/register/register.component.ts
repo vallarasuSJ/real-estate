@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   contact:number=0;
   password:string="";
   selectedRole:string="";
+  confirmPassword:string="";
   error:String="";
 
 
@@ -35,6 +36,11 @@ export class RegisterComponent implements OnInit {
         this.error = message.includes(',') ? message.split(',')[0] : message;
       }
     })
+    this.username="",
+    this.contact=0,
+    this.password="",
+    this.selectedRole="",
+    this.confirmPassword=""
   }
 
   register(registerForm:Form):void{
@@ -53,8 +59,7 @@ export class RegisterComponent implements OnInit {
         let message: String = err.error.error.message;
         this.error = message.includes(',') ? message.split(',')[0] : message;
       }
-    })
-
-    
+    }) 
+    this.ngOnInit();
   }
 }

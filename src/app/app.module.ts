@@ -27,6 +27,7 @@ import { UpdatePropertyComponent } from './component/update-property/update-prop
 import { AgentPropertiesComponent } from './component/agent-properties/agent-properties.component';
 import { ApprovePropertyComponent } from './component/approve-property/approve-property.component';
 import { ToastPackage, ToastrModule } from 'ngx-toastr';
+import { CategoryPropertiesComponent } from './component/category-properties/category-properties.component';
 
 export function playerFactory() {
   return player;
@@ -51,6 +52,7 @@ export function playerFactory() {
     UpdatePropertyComponent,
     AgentPropertiesComponent,
     ApprovePropertyComponent,
+    CategoryPropertiesComponent,
   ],
   imports: [
     BrowserModule,

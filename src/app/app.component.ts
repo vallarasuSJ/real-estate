@@ -41,4 +41,10 @@ export class AppComponent implements OnInit {
   logout(): void {
     this.authService.logout();
   }
+
+  showSidebar = false; 
+
+  toggleSidebar() {
+    this.showSidebar = !this.showSidebar; 
+  }
 }

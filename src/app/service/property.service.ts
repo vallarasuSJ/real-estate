@@ -5,11 +5,13 @@ import { AppResponse } from '../model/appResponse';
 import { urlEndpoint } from '../utils/constant';
 import { PropertyDetail } from '../model/property';
 import { AppUser } from '../model/appUser';
+import { Category } from '../model/category';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PropertyService { 
+export class PropertyService {
+  
   propertyDetail:PropertyDetail={
     id:0,
     propertyName:"",
@@ -19,6 +21,7 @@ export class PropertyService {
     zipcode:0,
     agentId:0,  
   }
+  
 
   constructor(private http:HttpClient){}
 
@@ -27,27 +30,29 @@ export class PropertyService {
   }
 
   setSelectedProperty(property: PropertyDetail):void {
-    this.propertyDetail=property;
-    
+    this.propertyDetail=property; 
   }
+
+ 
+  
   editSelectedProperty(id:number):Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties/${id}`)
   }
   getSelectedProperty():PropertyDetail{
     return this.propertyDetail;
   }
+  
 
   deleteProperty(id: number):Observable<AppResponse> {
     return this.http.delete<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${id}`);
   }
 
-  addProperty(property: PropertyDetail):Observable<AppResponse> {
-    return this.http.post<AppResponse>(`${urlEndpoint.baseUrl}/agent/property`,property);  
+  addProperty(formData: FormData,categoryId:number,agentId:number):Observable<AppResponse> {
+    return this.http.post<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${categoryId}/${agentId}`,formData);  
   }
 
   updateProperty(property: PropertyDetail) {
     return this.http.put<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties`,property); 
   }
- 
 
 }
