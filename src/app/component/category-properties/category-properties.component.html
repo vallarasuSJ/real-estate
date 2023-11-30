@@ -1,44 +1,49 @@
-<div class="container py-4" *ngFor="let category of categories">
-    <h1>{{category.categoryName}}</h1>
-    <div class="row" >
-      <div class="col-md-4" >
-        <div class="card property-card">
-          <img
-            src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
-            class="card-img-top"
-            alt="Property Image"
-          />
-          <div class="card-body" *ngFor="let property of category.propertyList">
-            <div class="card-location d-flex">
-              <i class="fa-solid fa-location-dot me-1 pb-3"></i>
-              <p class="card-text"></p>
-            </div>
-            <h5 class="card-title pb-2">
-              Property name:{{property.propertyName}}
-            </h5>
-            <div class="card-icons d-flex">
-              <ul class="d-flex list-unstyled">
-                <li class="me-4">
-                  <i class="fa-solid fa-bed me-2"></i>
-                  <p class="text-primary">2 bedrooms</p>
-                </li>
-                <li class="me-4">
-                  <i class="fa-solid fa-bath me-2"></i>
-                  <p class="text-primary">2 bathrooms</p>
-                </li>
-                <li class="me-4">
-                  <i class="fa-solid fa-car me-2"></i>
-                  <p class="text-primary">2 car parkings</p>
-                </li>
-              </ul>
-            </div>
-            <div class="d-flex">
-              <p class="text-primary">₹ {{property.price}}</p>
-            <p class="card-text"></p>
+<div class="container py-4">
+  <h1>Category properties</h1>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let property of categories">
+      <div class="card property-card" *ngIf="property.approve===true">
+        <div></div>
+        <img
+          src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
+            property.propertyId
+          }}"
+          class="card-img-top"
+          alt="Property Image"
+          style="transition: transform 0.8s"
+        />
+        <div class="card-body">
+          <div class="card-location d-flex">
+            <i class="fa-solid fa-location-dot me-1 pb-3"></i>
+            <p class="card-text">{{ property.address }}</p>
           </div>
+          <h5 class="card-title pb-2">
+            {{ property.propertyName }}
+          </h5>
+          <div class=" ">
+            <!-- <p class="text-primary me-3 "> {{ property.city }}</p> -->
+            <p>₹{{ property.price }}</p>
+          </div>
+         
+          <div class="">
+            <div class="text-primary">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <td>{{ property.agentName }}</td>
+                  </tr>
+                  <tr>
+                    <th>Contact</th>
+                    <td>{{property.contactNumber}}</td>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <p class="card-text"></p>
         </div>
       </div>
     </div>
-   
   </div>
-  
+</div>

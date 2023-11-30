@@ -17,9 +17,10 @@
         <tr>
           <td>
             <img
-              src="https://images.nobroker.in/images/8a9fdb82845fb53f01845ff9abe92521/8a9fdb82845fb53f01845ff9abe92521_59932_942966_medium.jpg"
+              src="{{'http://localhost:8080/api/agent/downloadFile/'}}{{property.id}}"
               class="card-img-top"
               alt="Property Image"
+              style="width: 120px; height:120px;"
             />
           </td>
           <td>{{ property.propertyName }}</td>
@@ -47,14 +48,6 @@
         </tr>
       </tbody>
     </table>
-    <div
-    class="navbar-nav px-4 text-white"
-    (click)="logout()"
-    routerLink="/addProperty"
-    role="button"
-  >
-    <i class="fa-solid fa-solid fa-right-from-bracket text-white"></i>
-  </div>
   </div>
 </div>
 

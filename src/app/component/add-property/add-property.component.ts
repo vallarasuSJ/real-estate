@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/model/address';
 import { Category } from 'src/app/model/category';
@@ -17,10 +18,10 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class AddPropertyComponent implements OnInit{
   propertyName:string='';
-  price:number=0;
+  price:number|null=null;
   Address:string='';
   city:string='';
-  zipcode:number=0;
+  zipcode:number|null=null;
   error:String="";
   categoryId:number=0;
   file='';
@@ -29,12 +30,13 @@ export class AddPropertyComponent implements OnInit{
   categories:Category[]=[];
   
 
-  constructor(private propertyService:PropertyService,private storageService:StorageService,private categoryService:CategoryService){}
+  constructor(private propertyService:PropertyService,private storageService:StorageService,private categoryService:CategoryService,private router:Router){}
   ngOnInit(): void {
     this.categoryService.getCategory().subscribe({
       next:(response)=>{
         this.categories=response.data;
         console.log(this.categories);
+       
         
       },
       error:(err)=>{
@@ -72,6 +74,7 @@ export class AddPropertyComponent implements OnInit{
     this.propertyService.addProperty(formData,categoryId,id).subscribe({
       next:(response)=>{
         console.log(response.data);
+        this.router.navigate(['/'],{replaceUrl:true});
       },
       error: (err) => {
         console.log(err);

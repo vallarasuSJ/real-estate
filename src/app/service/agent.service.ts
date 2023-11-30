@@ -9,7 +9,8 @@ import { AgentProperties } from '../model/agent-properties';
 @Injectable({
   providedIn: 'root'
 })
-export class AgentService { 
+export class AgentService {
+ 
   agentProperty:AgentProperties={
     propertyId:0,
     propertyName:"",
@@ -35,6 +36,9 @@ export class AgentService {
   deleteProperty(id: number):Observable<AppResponse> {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/{id}`);
   }
+  getAllAgents():Observable<AppResponse> {
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/agent/all`);
+  } 
   
  
 }

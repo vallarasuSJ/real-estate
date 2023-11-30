@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   roles:Role[]=[];
 
-  constructor(private authService:AuthService){}
+  constructor(private authService:AuthService,private router:Router){}
   ngOnInit(): void {
     this.authService.getRole().subscribe({
       next:(response)=>{  
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       }
     })
     this.username="",
-    this.contact,
+    this.contact=null,
     this.password="",
     this.selectedRole="",
     this.confirmPassword=""
@@ -54,12 +54,13 @@ export class RegisterComponent implements OnInit {
     this.authService.register(register).subscribe({
       next:(response)=>{
         console.log(response.data); 
+        this.router.navigate(['/login']);
       },
       error:(err)=>{
         let message: String = err.error.error.message;
         this.error = message.includes(',') ? message.split(',')[0] : message;
       }
     }) 
-    this.ngOnInit();
+
   }
 }

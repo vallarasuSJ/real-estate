@@ -99,7 +99,7 @@
           *ngFor="let category of categories"
           style="width: 11rem; height: 12rem"
           routerLink="/categories"
-          (click)="setCategoryId(category.categoryId)"
+          (click)="setCategoryId(category.categoryId!)"
         >
           <img
             *ngIf="category.categoryId === 1"
@@ -131,6 +131,13 @@
             class="card-img-top card-text"
             alt="..."
           />
+          <img
+          *ngIf="category.categoryId === 6"
+          src="../../../assets/images/office building category.png"
+          class="card-img-top card-text"
+          alt="..."
+        />
+
           <h5 class="card-text text-center text-muted">
             {{ category.categoryName }}
           </h5>

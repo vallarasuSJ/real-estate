@@ -9,8 +9,8 @@
     <header class="navbar sticky-top bg-primary p-2 shadow">
       <div class="navbar-nav px-4 text-white">
         <a class="navbar-brand d-flex" routerLink="/">
-          <i class="fa fa-house text-white pt-1 pe-2 w-50 h-50"></i>
-          <h3>Real Estate</h3>
+          <i class="fa fa-house text-white pt-1 pe-2 w-50 h-50" style="font-size: 23px;"></i>
+          <h3>DreamHome</h3>
         </a>
       </div>
     </header>
@@ -18,42 +18,42 @@
   <div *ngIf="isAdmin" class="row flex-grow-1">
     <div class="sidebar border border-right col-2 p-0">
       <div class="bg-body-tertiary h-100" tabindex="-1">
-        <div class="d-flex flex-column p-0 pt-3 overflow-y-auto">
+        <div class="d-flex sideNavBar flex-column p-0 pt-3 overflow-y-auto">
           <ul class="nav flex-column">
-            <li
+            <li 
               class="nav-item d-flex align-items-center px-4 sideBarItem"
-              routerLink="/admin"
+              routerLink="/admin" routerLinkActive="active-link"
             >
-              <i class="fa-solid text-primary fa-house"></i>
-              <a class="nav-link d-flex text-primary align-items-center">
+              <i class="fa-solid text-primary fa-house me-1" style="font-size: 20px;"></i>
+              <a class="nav-link d-flex text-primary align-items-center mt-1 ">
                 Dashboard
               </a>
             </li>
             <li
               class="nav-item d-flex align-items-center px-4 sideBarItem"
-              routerLink="/approveProperty"
+              routerLink="/approveProperty" routerLinkActive="active-link"
             >
-              <i class="fa-solid text-primary fa-book"></i>
+              <i class="fa-solid text-primary fa-book  me-1" style="font-size: 20px;"></i>
               <a class="nav-link d-flex text-primary align-items-center"  routerLink="/approveProperty"
                 >Approve
               </a>
             </li>
             <li
               class="nav-item d-flex align-items-center px-4 sideBarItem"
-              routerLink="/agents"
+              routerLink="/agents" routerLinkActive="active-link"
             >
-              <i class="fa-solid text-primary fa-user"></i>
+              <i class="fa-solid text-primary fa-user  me-1" style="font-size: 20px;"></i>
               <a class="nav-link d-flex text-primary align-items-center"   routerLink="/agents"
                 >Agents</a
               >
             </li>
             <li
               class="nav-item d-flex align-items-center px-4 sideBarItem"
-              routerLink="/customerBookings"
+              routerLink="/customerBookings" routerLinkActive="active-link"
             >
-              <i class="fa-solid text-primary fa-user"></i>
+              <i class="fa-solid text-primary fa-user  me-1" style="font-size: 20px;"></i>
               <a class="nav-link d-flex text-primary align-items-center" routerLink="/customerBookings"
-                >customers</a
+                >Customers</a
               >
             </li>
             <li
@@ -62,7 +62,7 @@
               role="button"
             >
               <i
-                class="fa-solid fa-solid fa-right-from-bracket text-primary"
+                class="fa-solid fa-solid fa-right-from-bracket text-primary  me-1"
               ></i>
               <a class="nav-link d-flex text-primary align-items-center"
                 >Logout</a

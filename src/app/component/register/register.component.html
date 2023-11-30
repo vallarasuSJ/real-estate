@@ -38,6 +38,7 @@
                   id="username"
                   name="username"
                   [(ngModel)]="username"
+                  #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
                   required
                   minlength="3"
                   #modelUserName="ngModel"
@@ -103,7 +104,7 @@
                   #roleDropdown="ngModel"
                 >
                   <option disabled selected>Select a role</option>
-                  <option *ngFor="let role of roles" [ngValue]="role.role">
+                  <option *ngFor="let role of roles.slice(0,2)" [ngValue]="role.role">
                     {{ role.role }}
                   </option>
                 </select>
@@ -178,7 +179,7 @@
                   Password mismatch
                 </div>
               </div>
-              <button type="submit"  routerLink="/login"  class="btn btn-primary my-3">
+              <button type="submit"   class="btn btn-primary my-3">
                 Register
               </button>
             </form>

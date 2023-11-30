@@ -12,6 +12,7 @@
                 type="text"
                 class="form-control mb-3"
                 id="propertyName"
+                #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
                 placeholder="Enter property name"
                 name="propertyName"
                 [(ngModel)]="propertyName"
@@ -24,10 +25,11 @@
               <input
                 type="text"
                 class="form-control mb-3"
-                id="Address"
+                id="address"
+                #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
                 placeholder="Enter Address"
-                name="Address"
-                [(ngModel)]="Address"
+                name="address"
+                [(ngModel)]="address"
                
               />
             </div>
@@ -37,6 +39,7 @@
                 type="text"
                 class="form-control mb-3"
                 id="city"
+                #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
                 placeholder="Enter city"
                 name="city"
                 [(ngModel)]="city"
@@ -65,12 +68,6 @@
                 [(ngModel)]="price"
               />
               
-            </div>
-            <div class="form-group">
-              <label for="image" class="mb-2">Image Upload</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input mb-2" id="image" />
-              </div>
             </div>
             <button type="submit" class="btn btn-primary">update</button>
           </form>

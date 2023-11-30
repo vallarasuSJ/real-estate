@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PropertyDetail } from 'src/app/model/property';
 import { PropertyService } from 'src/app/service/property.service';
 import { StorageService } from 'src/app/service/storage.service';
@@ -12,25 +12,17 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class UpdatePropertyComponent implements OnInit {
   propertyName:string='';
-  price:number=0;
-  Address:string='';
+  price:number|null=null;
+  address:string='';
   city:string='';
-  zipcode:number=0;
+  zipcode:number | null=null;
   error:String=""; 
   id:number=0;
   propertyId:number=0;
   addressId:number=0;
+  file='';
 
-  // property:PropertyDetail={
-  //   propertyName:this.propertyName,
-  //   price:this.price,
-  //   address:this.Address,
-  //   city:this.city,
-  //   zipcode:this.zipcode,
-  //   agentId:this.storageService.getLoggedInUser().id,
-  // }
-
-  constructor(private propertyService:PropertyService,private storageService:StorageService,private route:ActivatedRoute){
+  constructor(private propertyService:PropertyService,private storageService:StorageService,private route:ActivatedRoute,private router:Router){
 
   }
 
@@ -43,8 +35,11 @@ export class UpdatePropertyComponent implements OnInit {
     this.propertyService.editSelectedProperty(this.id).subscribe({
       next:(response)=>{
         let property:PropertyDetail=response.data;
+        console.log(property
+          );
+        
         this.propertyName=property.propertyName;
-        this.Address=property.address;
+        this.address=property.address;
         this.city=property.city;
         this.zipcode=property.zipcode;
         this.price=property.price;
@@ -55,23 +50,28 @@ export class UpdatePropertyComponent implements OnInit {
 
  
 
-  updateProperty(updatePropertyForm:Form):void{
+  updateProperty(updatePropertyForm:NgForm):void{
     this.route.queryParams.subscribe(params=>{
       this.id=params['id'];
     })
     
-    let property:PropertyDetail={
-      id:this.id,
-      propertyName:this.propertyName,
-      price:this.price,
-      address:this.Address,
-      city:this.city,
-      zipcode:this.zipcode,
-      agentId:this.storageService.getLoggedInUser().id,
-    }
-    this.propertyService.updateProperty(property).subscribe({
+    let agentId:number=this.storageService.getLoggedInUser().id;
+
+    const formData=new FormData();
+    console.log(updatePropertyForm.value);
+    
+    
+  
+    formData.append('propertyName',updatePropertyForm.value.propertyName);
+    formData.append('price',updatePropertyForm.value.price);
+    formData.append('address',updatePropertyForm.value.address);
+    formData.append('city',updatePropertyForm.value.city);
+    formData.append('zipcode',updatePropertyForm.value.zipcode);
+    console.log(formData);
+    this.propertyService.updateProperty(formData,this.id,agentId).subscribe({
       next:(response)=>{
         console.log(response.data);
+        this.router.navigate(['/'],{replaceUrl:true});
       },
       error: (err) => {
         console.log(err);
@@ -80,7 +80,14 @@ export class UpdatePropertyComponent implements OnInit {
       }
     })
     
+    this.propertyName='';
+    this.address='';
+    this.city='';
+    this.zipcode=null;
+    this.price=null;
+  
   }
+ 
 
 
 }

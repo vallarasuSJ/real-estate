@@ -11,7 +11,7 @@ import { Category } from '../model/category';
   providedIn: 'root'
 })
 export class PropertyService {
-  
+ 
   propertyDetail:PropertyDetail={
     id:0,
     propertyName:"",
@@ -21,6 +21,15 @@ export class PropertyService {
     zipcode:0,
     agentId:0,  
   }
+
+  categoryProperties:Category={
+    propertyId:0,
+    propertyName:"",
+    price:0,
+    address:"",
+    city:"",
+    zipcode:0, 
+  }
   
 
   constructor(private http:HttpClient){}
@@ -29,14 +38,23 @@ export class PropertyService {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/property/all`);
   }
 
+  getAgentPropertyDetails(agentId:number):Observable<AppResponse>{
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties/${agentId}`);
+  }
+
   setSelectedProperty(property: PropertyDetail):void {
     this.propertyDetail=property; 
   }
 
- 
-  
+  setCategoryProperty(categoryProperty:Category):void{
+    this.categoryProperties=categoryProperty;
+  }
+  getCategoryProperty():PropertyDetail{
+    return this.categoryProperties;
+  }
+
   editSelectedProperty(id:number):Observable<AppResponse>{
-    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties/${id}`)
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${id}`)
   }
   getSelectedProperty():PropertyDetail{
     return this.propertyDetail;
@@ -51,8 +69,11 @@ export class PropertyService {
     return this.http.post<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${categoryId}/${agentId}`,formData);  
   }
 
-  updateProperty(property: PropertyDetail) {
-    return this.http.put<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties`,property); 
+  updateProperty(formData: FormData,id:number,agentId:number) {
+    return this.http.put<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties/${id}/${agentId}`,formData); 
   }
-
+  getAllProperties():Observable<AppResponse> {
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/property/all`);
+  }
+  
 }

@@ -14,14 +14,14 @@
         />
         <div class="card-body">
           <div class="card-location d-flex">
-            <i class="fa-solid fa-location-dot me-1 pb-3"></i>
+            <i class="fa-solid fa-location-dot me-2 mt-1"></i>
             <p class="card-text">{{ property.city }}</p>
           </div>
           <h5 class="card-title pb-2">
             {{ property.propertyName }}
           </h5>
           <div class="d-flex ">
-            <p class="text-primary ">₹ {{ property.price }}</p>
+            <p class="text-primary price">₹ {{ property.price }}</p>
             <a
               routerLink="/propertyDetails"
               class="text-primary button-view"

@@ -10,9 +10,7 @@ import { StorageService } from 'src/app/service/storage.service';
   styleUrls: ['./booked-properties.component.css'],
 })
 export class BookedPropertiesComponent implements OnInit {
-  options: AnimationOptions = {
-    path: '/assets/bookingsEmpty.json',
-  };
+ 
   userId:number=0;
   error: String = '';
   booked: bookedProperties[] = [];
@@ -20,11 +18,11 @@ export class BookedPropertiesComponent implements OnInit {
   constructor(private bookingService: BookingService,private storageService:StorageService) {}
   ngOnInit(): void {
     this.userId=this.storageService.getLoggedInUser().id;
-    this.bookingService.getAllBookedProperties().subscribe({
+    this.bookingService.getAllBookedProperties(this.userId).subscribe({
       next: (response) => {
         this.booked=response.data;
        
-        console.log(this.userId);
+        console.log(this.booked);
         
       },
       error: (err: any) => {
@@ -45,4 +43,7 @@ export class BookedPropertiesComponent implements OnInit {
       },
     })
   }
+  options: AnimationOptions = {
+    path: '/assets/bookingsEmpty.json',
+  };
 }

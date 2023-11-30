@@ -11,8 +11,8 @@ import { PropertyDetail } from '../model/property';
 export class BookingService { 
   constructor(private http:HttpClient) { }
 
-  getAllBookedProperties():Observable<AppResponse> {
-    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/customer/booking/all`);
+  getAllBookedProperties(userId:number):Observable<AppResponse> {
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/customer/booking/${userId}`);
   }
 
   cancelBooking(id: number):Observable<AppResponse>{

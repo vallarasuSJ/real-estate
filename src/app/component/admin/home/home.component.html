@@ -1,0 +1,117 @@
+<style>
+    .container {
+      margin-top: 30px;
+    }   
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+   
+    .card-body {
+      text-align: center;
+    }
+   
+    .card-title {
+      color: #fff;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+   
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+   
+    .card-total-amount {
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #d8edf8, #bbccd4);
+      color: #ffffff;
+      text-align: center;
+      padding: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+   
+    .card-number-of-users {
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(to right, #d8edf8, #bbccd4);
+      color: #ffffff;
+      text-align: center;
+      padding: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+   
+    .card-user-registrations {
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(to right, #d8edf8, #bbccd4);
+      color: #ffffff;
+      text-align: center;
+      padding: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .admin{
+      font-weight: bold;
+    }
+    .lotty{
+      margin-left: 300px;
+    }
+  </style>
+   
+  <body>
+    <div class="container">
+      <h1 class="admin">Welcome, Admin!</h1> 
+      <div class="row">
+        <div class="col-md-6 lotty">
+          <ng-lottie [options]="options"></ng-lottie>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card card-user-registrations shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4">Number of customers</h3>
+              <div class="d-flex justify-content-center align-items-center">
+                <h1 class="display-3 text-primary">{{totalCustomers}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card card-user-registrations shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4">Number of Agents</h3>
+              <div class="d-flex justify-content-center align-items-center">
+                <h1 class="display-3 text-primary">{{totalAgents}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card card-user-registrations shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4">Number of Properties</h3>
+              <div class="d-flex justify-content-center align-items-center">
+                <h1 class="display-3 text-primary">{{totalProperties}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card card-user-registrations shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4">Number of Customer Bookings</h3>
+              <div class="d-flex justify-content-center align-items-center">
+                <h1 class="display-3 text-primary">{{ totalBookings }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>

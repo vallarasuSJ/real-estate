@@ -14,7 +14,7 @@
               type="text"
               class="form-control mb-3"
               id="propertyName"
-              placeholder="Enter property name"
+              #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
               name="propertyName"
               ngModel
               required
@@ -58,7 +58,7 @@
               type="text"
               class="form-control mb-3"
               id="Address"
-              placeholder="Enter Address"
+              #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
               name="address"
               ngModel
               required
@@ -78,7 +78,7 @@
               type="text"
               class="form-control mb-3"
               id="city"
-              placeholder="Enter city"
+              #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
               name="city"
               ngModel
               required
@@ -98,7 +98,7 @@
               type="text"
               class="form-control mb-3"
               id="zipcode"
-              placeholder="Enter zipcode"
+              #inputField (input)="inputField.value = inputField.value.charAt(0).toUpperCase() + inputField.value.slice(1)"
               name="zipcode"
               ngModel
               required

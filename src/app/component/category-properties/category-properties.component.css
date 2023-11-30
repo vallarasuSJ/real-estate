@@ -13,3 +13,77 @@
   .card-title-overlay {
     font-size: 1.5rem;
   }
+
+  .property-card {
+    margin-bottom: 20px;
+  }
+  h1{
+      padding-top:70px;
+      padding-bottom: 20px;
+  }
+  .container{
+    position: sticky;
+    margin-left: 10%;
+  }
+  .property-card {
+    margin-bottom: 30px;
+    transition: box-shadow 0.3s ease;
+  }
+  .property-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  .property-card .card-body {
+    padding: 20px;
+  }
+  .property-card .card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: start;
+  }
+  .property-card .card-text {
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .property-card .btn-primary {
+    margin-top: auto;
+    display: block;
+  }
+  h1{
+    font-size:xx-large;
+    font-weight: 800;
+    color: white;
+  }
+  
+  .button-view{
+    margin-left: 80px;
+ 
+  }
+  .card-image{
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .card:hover {
+    overflow: visible;
+    transform: scale(1.1);
+    z-index: 1;
+    color:aqua;
+  }
+  table {
+   
+    width: 100%;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  

@@ -32,6 +32,9 @@ export class CategoryPropertiesComponent implements OnInit{
     })
    
   }
+  setSelectedProperty(categoryProperties:Category):void{
+    this.propertyService.setCategoryProperty(categoryProperties);
+  }
 
  
 

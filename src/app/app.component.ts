@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { AnimationOptions } from 'ngx-lottie';
 import { LoaderService } from './service/loader.service';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,13 @@ export class AppComponent implements OnInit {
   isAdmin: boolean = false;
   isAgent:boolean=false;
   isLoggedIn: boolean = false;
+  router: any;
 
   constructor(
     private authService: AuthService,
-    public loaderService: LoaderService
+    public loaderService: LoaderService,
+    private route: ActivatedRoute
   ) {}
-
   ngOnInit(): void {
     this.authService.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
@@ -36,6 +38,10 @@ export class AppComponent implements OnInit {
     this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
+  }
+
+  isActive(routePath: string): boolean {
+    return this.router.isActive(routePath, false);
   }
 
   logout(): void {

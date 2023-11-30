@@ -9,6 +9,7 @@ import { urlEndpoint } from '../utils/constant';
   providedIn: 'root'
 })
 export class CustomerService {
+ 
   customerBookings:CustomerBookings={
     propertyId:0,
     name:"",
@@ -26,6 +27,9 @@ export class CustomerService {
 
   getCustomer():Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/customer/bookings/all`);
+  }
+  getAllCustomers():Observable<AppResponse> {
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/customer/all`);
     
   }
 }

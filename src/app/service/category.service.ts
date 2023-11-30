@@ -3,13 +3,12 @@ import { Observable } from 'rxjs';
 import { AppResponse } from '../model/appResponse';
 import { HttpClient } from '@angular/common/http';
 import { urlEndpoint } from '../utils/constant';
+import { Category } from '../model/category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-
-  
   constructor(private http:HttpClient) { }
    categoryId:number=0;
 

@@ -75,7 +75,7 @@ export class AuthService {
       this.router.navigate(["/"], { replaceUrl: true });
     } else if (user.role === CONSTANT.ADMIN) {
       this.isAdminSubject.next(true);
-      this.router.navigate(["/"], { replaceUrl: true });
+      this.router.navigate(["/admin"], { replaceUrl: true });
     }
     else if (user.role === CONSTANT.AGENT) {
       this.isAgentSubject.next(true);

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PropertyDetail } from 'src/app/model/property';
 import { AdminService } from 'src/app/service/admin.service';
 import { PropertyService } from 'src/app/service/property.service';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-agent-properties',
@@ -20,17 +21,18 @@ export class AgentPropertiesComponent implements OnInit{
     city:"",
     zipcode:0,
   }
+  agentId:number=0;
 
-  constructor(private propertyService: PropertyService,private adminService:AdminService,private router:Router) {}
-
+  constructor(private propertyService: PropertyService,private adminService:AdminService,private router:Router,private storageService:StorageService) {}
+  
   ngOnInit(): void {
-    this.propertyService.getPropertyDetails().subscribe({
+    this.agentId=this.storageService.getLoggedInUser().id;
+    this.propertyService.getAgentPropertyDetails(this.agentId).subscribe({
       next:(response)=>{
         let propertyDetails:PropertyDetail[]=response.data;
         if(propertyDetails.length>0){
           this.properties=propertyDetails;
           this.property=response.data[0];
-
         }
         
       },
@@ -39,6 +41,7 @@ export class AgentPropertiesComponent implements OnInit{
         this.error=message.includes(",")?message.split(",")[0]:message;
       }
     })
+   
   }
   setSelectedProperty(property:PropertyDetail):void{
     this.propertyService.setSelectedProperty(property);

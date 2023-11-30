@@ -8,6 +8,7 @@ import { BookingService } from 'src/app/service/booking.service';
 import { StorageService } from 'src/app/service/storage.service';
 import { Category } from 'src/app/model/category';
 import { CategoryService } from 'src/app/service/category.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-property-details',
@@ -20,12 +21,14 @@ export class PropertyDetailsComponent implements OnInit {
     private agentService: AgentService,
     private bookingService: BookingService,
     private storageService: StorageService,
-    private categoryService:CategoryService
+    private categoryService:CategoryService,
+    private router:Router
   ) {
     this.propertyDetail = propertyService.getSelectedProperty();
     console.log(this.propertyDetail);
     
     this.agentProperty = agentService.getSelectedProperty();
+    this.categoryProperties=propertyService.getCategoryProperty();
   }
   role:String='';
   error: String = '';
@@ -36,6 +39,7 @@ export class PropertyDetailsComponent implements OnInit {
     address: '',
     city: '',
     zipcode: 0,
+    agentId:0
   };
 
   agentProperty: AgentProperties = {
@@ -46,6 +50,16 @@ export class PropertyDetailsComponent implements OnInit {
     city: '',
     zipcode: 0,
   };
+
+  categoryProperties:Category={
+    categoryId:0,
+    propertyId:0,
+    propertyName:"",
+    price:0,
+    address:"",
+    city:"",
+    zipcode:0, 
+  }
 
 
 
@@ -59,6 +73,8 @@ export class PropertyDetailsComponent implements OnInit {
     this.bookingService.bookProperty(propertyDetail).subscribe({
       next: (response) => {
         response.data;
+        this.router.navigate(['/bookedProperties'],{replaceUrl:true});
+
       },
       error: (err) => {
         let message: String = err.error.error.message;
@@ -66,5 +82,6 @@ export class PropertyDetailsComponent implements OnInit {
       },
     });
     this.ngOnInit();
+
   }
 }
