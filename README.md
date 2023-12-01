@@ -32,6 +32,8 @@
 
 ![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/e742a1ce-f3ad-4c5f-a185-09d16bb0cf23)
 ![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/3f695bac-a21c-4c59-a17e-562dfa817bf5)
+![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/e8b8d825-ac9f-41ff-bf4d-84636e19ac27)
+
 
 
 
