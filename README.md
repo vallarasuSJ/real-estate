@@ -58,6 +58,7 @@
 
     🚩 Internal server error hibernate nested exception - Solved it by reworking on the modal mapping.
     🚩 Displaying image in the page.
+    🚩 Handling and mapping new model in the existing modals.
     🚩 Altering the entity and updating it.
     🚩 Handling logic for more than 1 row found for one to one mapping.
     🚩 Handling nested list- solved it by modifying the nested list in response.
