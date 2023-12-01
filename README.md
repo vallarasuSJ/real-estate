@@ -1,27 +1,70 @@
-# RealEstate
+# **Real Estate Listing Portal**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
-## Development server
+**Description**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    ➡️ It is a real estate platform where the Users can view properties, categories, and property data.
+    ➡️ With the assistance of the agent and their phone numbers, the user can inquire about the specifics of the property.
+    ➡️ If the buyer decides they do not want the property, they can cancel their reservation.
+    ➡️ The property may be added, updated, or deleted by the agent. Name, price, address, city, and zip code of the property are all included in the details.
+    ➡️ The administrator has access to all client, agency, property, and booking information.
+    ➡️ The user can see the property and its details only after the property approved by the admin..
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Credentials**
 
-## Build
+    👉 Customer 
+        📧username = "Vallarasu" | 🔐Password = "Vallarasu"
+    👉 Role 
+        📧username = "a" | 🔐Password = "a"
+    👉 Role 
+        📧username = "a" | 🔐Password = "a"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+**Technologies used**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    👉 '💻-Spring Boot Java' for Back end
+    👉 '💻-Angular' for Front end 
+    👉 '🗃️-MySql' for Database 
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Screenshots**
 
-## Further help
+    🔗 Links
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+**Challenges**
+
+    🔴 Point one
+    🔴 Point two
+    🔴 Point three
+    🔴 Point four
+    🔴 Point five
+
+
+**Hardest Errors** 
+
+    🚩 Error 1
+    🚩 Error 2
+    🚩 Error 3
+    🚩 Error 4
+    🚩 Error 5
+
+
+**Repository Link**
+
+    🔗 Repo link 
+
+
+**MySQL Schema**
+
+    👉 Image of schema 
+
+
+Demo Video Url
+  
+    🔗 url of demo video
+  
+  
+  
+  
