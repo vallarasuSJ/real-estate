@@ -30,9 +30,10 @@
 
 **Screenshots**
 
-![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/e742a1ce-f3ad-4c5f-a185-09d16bb0cf23)
-![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/3f695bac-a21c-4c59-a17e-562dfa817bf5)
-![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/e8b8d825-ac9f-41ff-bf4d-84636e19ac27)
+![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/85d95111-a02b-463f-96bb-5fd4ec200f52)
+![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/be182791-357f-4416-aec6-b6168cfe68ec)
+![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/0da5e679-fee2-45b6-8a76-edbcd63c7201)
+
 
 
 
@@ -45,20 +46,20 @@
 
 **Challenges**
 
-    🔴 Point one
-    🔴 Point two
-    🔴 Point three
-    🔴 Point four
-    🔴 Point five
+    🔴 Faced challenges in creating and mapping the enitites.
+    🔴 While integrating front end and back end for POST and PUT request.
+    🔴 Uploading image to the server and downloading image from the server.
+    🔴 Faced challenge for @OnetoOne mapping for duplicate datas.
+    🔴 Faced challenge in writing nested JPQL query.
 
 
 **Hardest Errors** 
 
-    🚩 Error 1
-    🚩 Error 2
-    🚩 Error 3
-    🚩 Error 4
-    🚩 Error 5
+    🚩 Internal server error hibernate nested exception - Solved it by reworking on the modal mapping.
+    🚩 Internal server error for java persisitance exception for date - Solved it by converting the date format.
+    🚩 Internal server error for delete nested entities - Solved it by adding cascade type ALL.
+    🚩 Altering the entity and updating it.
+    🚩 Handling logic for more than 1 row found for one to one mapping.
 
 
 **Repository Link**
