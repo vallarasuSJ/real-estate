@@ -73,8 +73,7 @@
 
 
 Demo Video Url
-
-    🔗 [url of demo video](https://drive.google.com/file/d/1HMpEqcWZABdELfSKdWmkM2RCiXzEKoHx/view?usp=sharing)
+🔗[url of demo video](https://drive.google.com/file/d/1HMpEqcWZABdELfSKdWmkM2RCiXzEKoHx/view?usp=sharing)
   
   
   
