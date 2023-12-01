@@ -68,12 +68,13 @@
 
 **MySQL Schema**
 
-    👉 Image of schema 
+![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/0f4beb58-8f90-45ac-a1dd-5685e221dc7f)
+ 
 
 
 Demo Video Url
-  
-    🔗 url of demo video
+
+    🔗 [url of demo video](https://drive.google.com/file/d/1HMpEqcWZABdELfSKdWmkM2RCiXzEKoHx/view?usp=sharing)
   
   
   
