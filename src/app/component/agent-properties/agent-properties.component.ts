@@ -60,6 +60,7 @@ export class AgentPropertiesComponent implements OnInit{
         this.error=message.includes(",")?message.split(",")[0]:message;
       }
     })
+    this.router.navigate(['/'],{replaceUrl:true});
   }
 
   approveProperty(property:PropertyDetail){
