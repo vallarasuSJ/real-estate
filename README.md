@@ -15,10 +15,10 @@
 
     👉 Customer 
         📧username = "Vallarasu" | 🔐Password = "Vallarasu"
-    👉 Role 
-        📧username = "a" | 🔐Password = "a"
-    👉 Role 
-        📧username = "a" | 🔐Password = "a"
+    👉 Agent 
+        📧username = "Vikram" | 🔐Password = "Vikram"
+    👉 Admin 
+        📧username = "admin" | 🔐Password = "admin"
 
 
 **Technologies used**
@@ -31,6 +31,8 @@
 **Screenshots**
 
     🔗 Links
+    ![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/e742a1ce-f3ad-4c5f-a185-09d16bb0cf23)
+
 
 
 **Challenges**
