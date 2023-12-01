@@ -64,7 +64,9 @@
 
 **Repository Link**
 
-    🔗 Repo link 
+    🔗 Front end - https://github.com/vallarasuSJ/real-estate
+    🔗 Back end - [https://github.com/vallarasuSJ/real-estate](https://github.com/vallarasuSJ/Spring-Boot-real-estate-API)
+    
 
 
 **MySQL Schema**
