@@ -31,10 +31,7 @@
 **Screenshots**
 
 ![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/e742a1ce-f3ad-4c5f-a185-09d16bb0cf23)
-![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/bd60dbe6-85e4-41f1-8a39-edec58cf7f1c)
 ![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/3f695bac-a21c-4c59-a17e-562dfa817bf5)
-![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/94a033f3-dac4-472e-8b5e-bc7df8a6b0fb)
-![image](https://github.com/vallarasuSJ/real-estate/assets/145537953/c1f4af27-5300-4914-bd26-cae23474f126)
 
 
 
