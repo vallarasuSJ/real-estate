@@ -21,16 +21,16 @@ export class PropertyDetailsComponent implements OnInit {
     private agentService: AgentService,
     private bookingService: BookingService,
     private storageService: StorageService,
-    private categoryService:CategoryService,
-    private router:Router
+    private categoryService: CategoryService,
+    private router: Router
   ) {
     this.propertyDetail = propertyService.getSelectedProperty();
     console.log(this.propertyDetail);
-    
+
     this.agentProperty = agentService.getSelectedProperty();
-    this.categoryProperties=propertyService.getCategoryProperty();
+    this.categoryProperties = propertyService.getCategoryProperty();
   }
-  role:String='';
+  role: String = '';
   error: String = '';
   propertyDetail: PropertyDetail = {
     id: 0,
@@ -39,7 +39,7 @@ export class PropertyDetailsComponent implements OnInit {
     address: '',
     city: '',
     zipcode: 0,
-    agentId:0
+    agentId: 0,
   };
 
   agentProperty: AgentProperties = {
@@ -51,20 +51,18 @@ export class PropertyDetailsComponent implements OnInit {
     zipcode: 0,
   };
 
-  categoryProperties:Category={
-    categoryId:0,
-    propertyId:0,
-    propertyName:"",
-    price:0,
-    address:"",
-    city:"",
-    zipcode:0, 
-  }
-
-
+  categoryProperties: Category = {
+    categoryId: 0,
+    propertyId: 0,
+    propertyName: '',
+    price: 0,
+    address: '',
+    city: '',
+    zipcode: 0,
+  };
 
   ngOnInit(): void {
-    this.role= this.storageService.getLoggedInUser().role;
+    this.role = this.storageService.getLoggedInUser().role;
   }
 
   bookProperty(propertyDetail: PropertyDetail) {
@@ -73,8 +71,7 @@ export class PropertyDetailsComponent implements OnInit {
     this.bookingService.bookProperty(propertyDetail).subscribe({
       next: (response) => {
         response.data;
-        this.router.navigate(['/bookedProperties'],{replaceUrl:true});
-
+        this.router.navigate(['/bookedProperties'], { replaceUrl: true });
       },
       error: (err) => {
         let message: String = err.error.error.message;
@@ -82,6 +79,5 @@ export class PropertyDetailsComponent implements OnInit {
       },
     });
     this.ngOnInit();
-
   }
 }

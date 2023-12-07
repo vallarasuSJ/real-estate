@@ -2,7 +2,7 @@
   <h1>Properties</h1>
   <div class="row">
     <div class="col-md-3" *ngFor="let property of properties">
-      <div class="card property-card" *ngIf="property.approve===true">
+      <div class="card property-card" *ngIf="property.approve === true">
         <div></div>
         <img
           src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
@@ -20,7 +20,7 @@
           <h5 class="card-title pb-2">
             {{ property.propertyName }}
           </h5>
-          <div class="d-flex ">
+          <div class="d-flex">
             <p class="text-primary price">₹ {{ property.price }}</p>
             <a
               routerLink="/propertyDetails"
@@ -41,7 +41,7 @@
                   </tr>
                   <tr>
                     <th>Contact</th>
-                    <td>{{property.contactNumber}}</td>
+                    <td>{{ property.contactNumber }}</td>
                   </tr>
                 </thead>
               </table>
