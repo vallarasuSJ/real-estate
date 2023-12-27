@@ -34,44 +34,57 @@ export class PropertyService {
 
   constructor(private http:HttpClient){}
 
+  //retreives all properties from the server
   getPropertyDetails():Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/property/all`);
   }
 
+  //  Retrieves details of properties owned by a specific agent from the server.
   getAgentPropertyDetails(agentId:number):Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties/${agentId}`);
   }
-
+  
+  //set the specific property object 
   setSelectedProperty(property: PropertyDetail):void {
     this.propertyDetail=property; 
   }
 
+  //set the specific category property object 
   setCategoryProperty(categoryProperty:Category):void{
     this.categoryProperties=categoryProperty;
   }
+
+  //retreives the selected category property object that had been set
   getCategoryProperty():PropertyDetail{
     return this.categoryProperties;
   }
 
+  //retrieves the specific property details to be modified
   editSelectedProperty(id:number):Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${id}`)
   }
+
+  //retrieve the currently selected property detail
   getSelectedProperty():PropertyDetail{
     return this.propertyDetail;
   }
   
-
+  //delete the selected property based on the ID
   deleteProperty(id: number):Observable<AppResponse> {
     return this.http.delete<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${id}`);
   }
 
+  //sending a post request to add a new property for specific category and agent
   addProperty(formData: FormData,categoryId:number,agentId:number):Observable<AppResponse> {
     return this.http.post<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/${categoryId}/${agentId}`,formData);  
   }
 
+  //Sending  a PUT request to update an existing property for a specific ID and agent
   updateProperty(formData: FormData,id:number,agentId:number) {
     return this.http.put<AppResponse>(`${urlEndpoint.baseUrl}/agent/properties/${id}/${agentId}`,formData); 
   }
+
+  //retrieves all the properties from the server
   getAllProperties():Observable<AppResponse> {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/property/all`);
   }

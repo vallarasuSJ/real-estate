@@ -11,14 +11,17 @@ import { PropertyDetail } from '../model/property';
 export class BookingService { 
   constructor(private http:HttpClient) { }
 
+  //Retrieves details of all properties booked by a specific user
   getAllBookedProperties(userId:number):Observable<AppResponse> {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/customer/booking/${userId}`);
   }
 
+  //Cancels the booking for a specific property based on the provided ID
   cancelBooking(id: number):Observable<AppResponse>{
    return this.http.delete<AppResponse>(`${urlEndpoint.baseUrl}/customer/booking/cancel/${id}`)   
   }
 
+  //books a property for the customer
   bookProperty(propertyDetail: PropertyDetail) {
     console.log(propertyDetail);
     return this.http.post<AppResponse>(`${urlEndpoint.baseUrl}/customer/booking`,propertyDetail);

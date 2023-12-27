@@ -1,0 +1,46 @@
+<!-- Container for product details -->
+<div class="container mt-5">
+  <div class="card productDetail border-0 shadow-lg">
+    <div class="row g-0" *ngIf="propertyDetail">
+      <div class="col-md-8" *ngIf="propertyDetail.id">
+        <img
+          src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
+            propertyDetail.id
+          }}"
+          style="width: 900px; height: 600px"
+          alt="Product Image"
+          class="card-img-top"
+        />
+      </div>
+      <div class="col-md-4 bg-light">
+        <div class="card-body mt-5">
+          <h2 class="card-title mt-3">
+            Product Name: {{ propertyDetail.propertyName }}
+          </h2>
+          <p class="card-text mt-3">Price: {{ propertyDetail.price }}</p>
+          <p class="card-text mt-3">Address: {{ propertyDetail.address }}</p>
+          <p class="card-text mt-3">City: {{ propertyDetail.city }}</p>
+          <p class="card-text mt-3">Zipcode: {{ propertyDetail.zipcode }}</p>
+          <!-- button to book the property -->
+          <button
+            class="btn btn-primary mt-4"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmationModal"
+            *ngIf="role === 'USER'"
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- confirmation modal for  booking -->
+<app-confirmation-modal
+  [title]="'Confirmation'"
+  (confirm)="bookProperty(propertyDetail)"
+  (cancel)="onCancelDelete()"
+>
+  Are you sure you want to book this property?
+</app-confirmation-modal>

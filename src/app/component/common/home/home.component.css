@@ -1,0 +1,67 @@
+
+  .left-column {
+    padding-top: 200px;
+  }
+  .right-column img {
+    height: 100%;
+
+    padding-left: 140px;
+  }
+  .home-container {
+    margin-top: 5%;
+  }
+  h1 {
+    color: white;
+  }
+  h4 {
+    color: grey;
+  }
+
+  .card-img-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+  }
+  .card-title-overlay {
+    font-size: 1.5rem;
+  }
+  .category {
+    width: 200px;
+    height: 200px;
+  }
+  .card {
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .card:hover {
+    overflow: visible;
+    transform: scale(1.1);
+    z-index: 1;
+    color: aqua;
+  }
+  .card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .headline {
+    background-color: rgb(207, 221, 233);
+  }
+  h2 {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  .featuredProperty {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  .container-property {
+    padding-top: 90px;
+    background-color: rgb(207, 221, 233);
+  }
+  h1 {
+    font-weight: bold;
+  }
+

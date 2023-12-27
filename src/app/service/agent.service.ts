@@ -22,20 +22,27 @@ export class AgentService {
 
   constructor(private http:HttpClient) { }
 
+  //Retrieves details of all agent properties from the server.
   getAgents():Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/agent/properties/all`);
   }
 
+  //Sets the selected agent property.
   setSelectedProperty(agent: AgentProperties): void {
     this.agentProperty=agent;
   }
+
+  //Retrieves the currently selected agent property.
   getSelectedProperty():AgentProperties{
     return this.agentProperty;
   }
 
+  //Deletes a specific property by sending id to the endpoint
   deleteProperty(id: number):Observable<AppResponse> {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/agent/property/{id}`);
   }
+
+  // Retrieves details of all agents from the server.
   getAllAgents():Observable<AppResponse> {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/agent/all`);
   } 

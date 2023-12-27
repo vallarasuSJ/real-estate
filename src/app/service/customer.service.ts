@@ -10,24 +10,15 @@ import { urlEndpoint } from '../utils/constant';
 })
 export class CustomerService {
  
-  customerBookings:CustomerBookings={
-    propertyId:0,
-    name:"",
-    propertyName:"",
-    address:"",
-    city:"",
-    zipcode:0,
-    price:0,
-    contactNumber:0,
-    bookedTime:0,
-  }
-  
 
   constructor(private http:HttpClient) { }
 
-  getCustomer():Observable<AppResponse>{
+  //Retrieves details of all bookings made by customers.
+  getCustomerBookings():Observable<AppResponse>{
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/customer/bookings/all`);
   }
+  
+  //Retrieves details of all customers.
   getAllCustomers():Observable<AppResponse> {
     return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/admin/customer/all`);
     

@@ -1,0 +1,85 @@
+<!-- Container for approve Properties -->
+<div class="container">
+  <h1>Properties</h1>
+  <div class="mt-4 table-responsive">
+    <!-- Table for displaying Properties -->
+    <table class="table table-bordered text-center align-middle">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Property Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Address</th>
+          <th scope="col">city</th>
+          <th scope="col">zipcode</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <!-- property Details -->
+      <tbody
+        *ngFor="
+          let property of properties.slice(
+            (currentPage - 1) * itemsPerPage,
+            currentPage * itemsPerPage
+          )
+        "
+      >
+        <tr>
+          <td>
+            <img
+              src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
+                property.id
+              }}"
+              class="card-img-top"
+              alt="Property Image"
+              style="width: 120px; height: 120px"
+            />
+          </td>
+          <td>{{ property.propertyName }}</td>
+          <td>₹ {{ property.price }}</td>
+          <td>
+            <p>{{ property.address }}</p>
+          </td>
+          <td>
+            <p>{{ property.city }}</p>
+          </td>
+          <td>
+            <p>{{ property.zipcode }}</p>
+          </td>
+
+          <!-- Actions (Approve/Approved) based on property approval status -->
+          <td class="action-btns" *ngIf="property.approve === false">
+            <a
+              routerLink="/approveProperty"
+              class="btn btn-danger btn-block me-2 mt-2 px-2"
+              (click)="approveProperty(property)"
+              >Approve</a
+            >
+          </td>
+          <td class="action-btns" *ngIf="property.approve === true">
+            <a class="btn btn-success btn-block me-2 mt-2 px-2">Approved</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination for Property List -->
+    <ul class="pagination justify-content-center mt-3">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="currentPage = currentPage - 1"
+          >Previous</a
+        >
+      </li>
+      <li
+        class="page-item text-danger"
+        *ngFor="let page of getPageNumbers()"
+        [class.active]="currentPage === page"
+      >
+        <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+        <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+      </li>
+    </ul>
+  </div>
+</div>

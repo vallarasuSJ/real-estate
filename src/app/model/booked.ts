@@ -1,5 +1,5 @@
 export interface bookedProperties{
-    id:number;
+    id?:number;
     name:string;
     propertyName:string;
     address:string;
@@ -9,4 +9,5 @@ export interface bookedProperties{
     contactNumber:number;
     customerId:number;
     propertyId:number;
+    bookedId:number;
 }

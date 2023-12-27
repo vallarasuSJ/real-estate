@@ -1,0 +1,72 @@
+<!-- Container for displaying Category properties -->
+<div class="container py-4">
+  <h1>Category properties</h1>
+  <div class="row">
+    <div
+      class="col-md-3"
+      *ngFor="
+        let property of categories.slice(
+          (currentPage - 1) * itemsPerPage,
+          currentPage * itemsPerPage
+        )
+      "
+    >
+      <div class="card property-card" *ngIf="property.approve === true">
+        <div></div>
+        <img
+          src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
+            property.propertyId
+          }}"
+          class="card-img-top"
+          alt="Property Image"
+          style="transition: transform 0.8s"
+        />
+        <div class="card-body">
+          <div class="card-location d-flex">
+            <i class="fa-solid fa-location-dot me-1 pb-3"></i>
+            <p class="card-text">{{ property.address }}</p>
+          </div>
+          <h5 class="card-title pb-2">
+            {{ property.propertyName }}
+          </h5>
+
+          <p>₹{{ property.price }}</p>
+
+          <div class="text-primary">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <td>{{ property.agentName }}</td>
+                </tr>
+                <tr>
+                  <th>Contact</th>
+                  <td>{{ property.contactNumber }}</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Pagination for Category Properties -->
+    <ul class="pagination justify-content-center mt-3">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="currentPage = currentPage - 1"
+          >Previous</a
+        >
+      </li>
+      <li
+        class="page-item text-danger"
+        *ngFor="let page of getPageNumbers()"
+        [class.active]="currentPage === page"
+      >
+        <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+        <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+      </li>
+    </ul>
+  </div>
+</div>

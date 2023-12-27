@@ -1,0 +1,52 @@
+<!-- Container for displaying Customer bookings to the admin -->
+<div class="container mt-4">
+  <h1>Customer bookings</h1>
+
+    <!-- Table for displaying customer booking details -->
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Customer Name</th>
+        <th>Contact Number</th>
+        <th>Property Name</th>
+        <th>Address</th>
+        <th>Price</th>
+        <th>Booked Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let customer of customerBookings.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+      <tr>
+        <td>
+          <img
+            src="{{'http://localhost:8080/api/agent/downloadFile/'}}{{customer.propertyId}}"
+            alt="Property Image"
+            class="property-image"
+            style="width: 200px; height: 150px;"
+          />
+        </td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.contactNumber }}</td>
+        <td>{{ customer.propertyName }}</td>
+        <td>{{ customer.city }}</td>
+        <td>{{ customer.price }}</td>
+        <td>{{ customer.bookedTime }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination for Customer Bookings -->
+  <ul class="pagination  justify-content-center mt-3">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
+      
+    </li>
+    <li class="page-item text-danger" *ngFor="let page of getPageNumbers()"  [class.active]="currentPage === page">
+      <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+      <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+     
+    </li>
+  </ul>
+</div>

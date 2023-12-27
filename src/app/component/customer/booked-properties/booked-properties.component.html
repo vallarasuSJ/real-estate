@@ -1,0 +1,80 @@
+<!-- Container for displaying booked properties to customers-->
+<div class="container">
+
+  <!-- lotty animation if there is no property booked -->
+  <div class="col-md-6 booking-image" *ngIf="booked.length === 0">
+    <ng-lottie [options]="options"></ng-lottie>
+  </div>
+
+   <!-- Table for displaying booked properties -->
+  <table class="table table-bordered property-table" *ngIf="booked.length > 0">
+    <thead class="thead-light table-head">
+      <tr>
+        <th>Image</th>
+        <th>Property Name</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Agent Name</th>
+        <th>Contact Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+     <!-- booked property details -->
+    <tbody *ngFor="let booking of booked.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+      <tr *ngIf="userId === booking.customerId">
+        <td>
+          <img
+            src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
+              booking.propertyId
+            }}"
+            style="width: 100px; height: 100px"
+            alt="Property Image"
+            class="property-image"
+          />
+        </td>
+        <td>{{ booking.propertyName }}</td>
+        <td>₹{{ booking.price }}</td>
+        <td>{{ booking.address }}</td>
+        <td>{{ booking.city }}</td>
+        <td>{{ booking.name }}</td>
+        <td>{{ booking.contactNumber }}</td>
+
+        <!-- cancel booking button to open modal -->
+        <td>
+          <button
+            class="cancel-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmationModal"
+          >
+            Cancel Booking
+          </button>
+        </td>
+      </tr>
+
+         <!-- Modal for canceling booking -->
+       <app-confirmation-modal
+       [title]="'Confirmation'"
+       (confirm)="cancelBooking(booking.bookedId)"
+       (cancel)="onCancelDelete()"
+     >
+       Are you sure you want to cancel booking?
+     </app-confirmation-modal>
+    </tbody>
+  </table>
+
+  <!-- Pagination for Booked Properties -->
+  <ul class="pagination  justify-content-center mt-3">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
+      
+    </li>
+    <li class="page-item text-danger" *ngFor="let page of getPageNumbers()"  [class.active]="currentPage === page">
+      <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+      <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+    </li>
+  </ul>
+</div>

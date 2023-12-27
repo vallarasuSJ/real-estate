@@ -14,6 +14,7 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
 
+  //approve property by sending put request to the admin property endpoint
   approveProperty(property: PropertyDetail):Observable<AppResponse> {
     return this.http.put<AppResponse>(`${urlEndpoint.baseUrl}/admin/property/update`,property);
   }

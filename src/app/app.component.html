@@ -1,10 +1,16 @@
+<!-- Display navbar and content when user is not logged in -->
 <div *ngIf="!isLoggedIn"><app-navbar /><router-outlet /></div>
 
+
 <div *ngIf="isLoggedIn" class="container-fluid vh-100 d-flex flex-column">
-  <!-- <div *ngIf="!isAdmin && !isAgent">
+   <!-- navigate to user page and other related pages for customers -->
+  <div *ngIf="!isAdmin && !isAgent">
     <app-user-page></app-user-page><router-outlet />
-  </div> -->
+  </div>
+ <!-- navigate to agent page and other related pages for agent -->
   <div *ngIf="isAgent"><app-agent-page /><router-outlet /></div>
+
+   <!-- Display navbar for admin -->
   <div *ngIf="isAdmin" class="row">
     <header class="navbar sticky-top bg-primary p-2 shadow">
       <div class="navbar-nav px-4 text-white">
@@ -15,7 +21,9 @@
       </div>
     </header>
   </div>
-  <div *ngIf="isAdmin" class="row flex-grow-1">
+
+  <!-- Display sidebar and main content for admins -->
+  <div *ngIf="isAdmin" class="row flex-grow-1 ">
     <div class="sidebar border border-right col-2 p-0">
       <div class="bg-body-tertiary h-100" tabindex="-1">
         <div class="d-flex sideNavBar flex-column p-0 pt-3 overflow-y-auto">
@@ -33,7 +41,7 @@
               class="nav-item d-flex align-items-center px-4 sideBarItem"
               routerLink="/approveProperty" routerLinkActive="active-link"
             >
-              <i class="fa-solid text-primary fa-book  me-1" style="font-size: 20px;"></i>
+              <i class="fa-solid text-primary fa-book me-1" style="font-size: 20px;"></i>
               <a class="nav-link d-flex text-primary align-items-center"  routerLink="/approveProperty"
                 >Approve
               </a>
@@ -72,15 +80,15 @@
         </div>
       </div>
     </div>
+     <!-- Main content area for admins -->
     <main class="col-10 px-4">
       <router-outlet></router-outlet>
     </main>
   </div>
-  <div *ngIf="!isAdmin && !isAgent">
-    <app-user-page></app-user-page><router-outlet />
-  </div>
 </div>
 
+
+<!-- Display loader when isLoading is true -->
 <div *ngIf="loaderService.isLoading | async" class="loader">
   <ng-lottie [options]="options"></ng-lottie>
 </div>

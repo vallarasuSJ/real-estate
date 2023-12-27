@@ -1,0 +1,65 @@
+<!-- Container for Agent Details and Properties -->
+<div class="container ">
+  <div class="card mt-4" *ngFor="let agent of agents">
+    <div class="card-body">
+       <!-- Agent Information-->
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Name: </strong> {{ agent.agentName }}</p>
+          <p><strong>Contact Number:</strong> {{ agent.contactNumber }}</p>
+        </div>
+      </div>
+
+      <hr class="my-4" />
+
+      <h3>Properties</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Property Name</th>
+              <th>Price</th>
+              <th>Address</th>
+              <th>city</th>
+              <th>zipcode</th>
+            </tr>
+          </thead>
+          <tbody>
+             <!-- Agents property Information-->
+            <tr *ngFor="let property of agent?.propertyList?.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+              <td>
+                <img
+                  src="{{'http://localhost:8080/api/agent/downloadFile/'}}{{property.id}}"
+                  class="card-img-top"
+                  alt="Property Image"
+                  style="width: 200px; height:150px"
+                />
+              </td>
+              <td>{{ property.propertyName }}</td>
+              <td>{{ property.price }}</td>
+              <td>{{ property.address.address }}</td>
+              <td>{{ property.address.city }}</td>
+              <td>{{ property.address.zipcode }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- pagination section -->
+        <ul class="pagination  justify-content-center mt-3">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
+            
+          </li>
+          <li class="page-item text-danger" *ngFor="let page of getPageNumbers()"  [class.active]="currentPage === page">
+            <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+            <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+           
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

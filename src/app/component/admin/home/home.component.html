@@ -1,76 +1,14 @@
-<style>
-    .container {
-      margin-top: 30px;
-    }   
-    .card {
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      color: #fff;
-    }
-   
-    .card-body {
-      text-align: center;
-    }
-   
-    .card-title {
-      color: #fff;
-    }
-    .btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-    }
-   
-    .btn-primary:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
-    }
-   
-    .card-total-amount {
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #d8edf8, #bbccd4);
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-   
-    .card-number-of-users {
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(to right, #d8edf8, #bbccd4);
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-   
-    .card-user-registrations {
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(to right, #d8edf8, #bbccd4);
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .admin{
-      font-weight: bold;
-    }
-    .lotty{
-      margin-left: 300px;
-    }
-  </style>
-   
-  <body>
     <div class="container">
       <h1 class="admin">Welcome, Admin!</h1> 
       <div class="row">
+         <!-- Lottie animation column -->
         <div class="col-md-6 lotty">
           <ng-lottie [options]="options"></ng-lottie>
         </div>
 
+        <!-- card column describes total customers -->
         <div class="col-md-6">
-          <div class="card card-user-registrations shadow-sm">
+          <div class="card card-total-users shadow-sm">
             <div class="card-body">
               <h3 class="card-title mb-4">Number of customers</h3>
               <div class="d-flex justify-content-center align-items-center">
@@ -80,8 +18,9 @@
           </div>
         </div>
 
+        <!-- card column describes total agents -->
         <div class="col-md-6">
-          <div class="card card-user-registrations shadow-sm">
+          <div class="card card-total-users shadow-sm">
             <div class="card-body">
               <h3 class="card-title mb-4">Number of Agents</h3>
               <div class="d-flex justify-content-center align-items-center">
@@ -91,8 +30,9 @@
           </div>
         </div>
         
+        <!-- card column describes total properties -->
         <div class="col-md-6">
-          <div class="card card-user-registrations shadow-sm">
+          <div class="card card-total-users shadow-sm">
             <div class="card-body">
               <h3 class="card-title mb-4">Number of Properties</h3>
               <div class="d-flex justify-content-center align-items-center">
@@ -102,8 +42,9 @@
           </div>
         </div>
 
+        <!-- card column describes no of customer bookings -->
         <div class="col-md-6">
-          <div class="card card-user-registrations shadow-sm">
+          <div class="card card-total-users shadow-sm">
             <div class="card-body">
               <h3 class="card-title mb-4">Number of Customer Bookings</h3>
               <div class="d-flex justify-content-center align-items-center">
@@ -114,4 +55,3 @@
         </div>
       </div>
     </div>
-  </body>

@@ -13,6 +13,7 @@ import { Register } from '../model/register';
   providedIn: 'root',
 })
 export class AuthService {
+ 
 
   private isAdminSubject = new BehaviorSubject<boolean>(false);
   private isAgentSubject= new BehaviorSubject<boolean>(false);
@@ -32,6 +33,7 @@ export class AuthService {
     }
   }
 
+  //Logs in the user by sending a POST request to the authentication endpoint.
   login(login: Login): Observable<AppResponse> {
     return this.http
       .post<AppResponse>(`${urlEndpoint.baseUrl}/auth/login`, login)
@@ -46,6 +48,7 @@ export class AuthService {
       );
   }
 
+  //Logs out the user by removing authentication data and navigating to the home page.
   logout() {
     this.storageService.removeAuthData();
     this.isAdminSubject.next(false);
@@ -55,18 +58,22 @@ export class AuthService {
     this.router.navigate(['/'], { replaceUrl: true });
   }
 
+  //checks if the user is an admin
   isAdmin(): boolean {
     return this.isAdminSubject.value;
   }
 
+  //Checks if the user is an agent.
   isAgent():boolean{
     return this.isAgentSubject.value;
   }
 
+  //check if the user is loggedIn
   isLoggedIn(): boolean {
     return this.isLoggedInSubject.value;
   }
 
+  //sets the logged in user and navigates to the appropriate route based on role
   setLoggedIn(user: AppUser): void {
     this.storageService.setLoggedInUser(user);
     this.isLoggedInSubject.next(true);
@@ -83,12 +90,19 @@ export class AuthService {
     }
   }
 
+  //registering a new user by sending post request to the registration endpoint
   register(register: Register):Observable<AppResponse> {
     console.log(register);
     return this.http.post<AppResponse>(`${urlEndpoint.baseUrl}/auth/register`,register);
   }
+
+  //retrieves all the roles 
   getRole() :Observable<AppResponse>{
-    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/auth/role`);
-    
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/auth/role`); 
+  }
+
+  //retrieves details of all the users
+  getAllUsers() {
+    return this.http.get<AppResponse>(`${urlEndpoint.baseUrl}/auth/allUsers`); 
   }
 }

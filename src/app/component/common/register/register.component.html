@@ -1,0 +1,221 @@
+<style>
+  .register-form {
+    padding: 20px;
+    padding-top: 50px;
+  }
+  .lotty {
+    padding: 80px;
+  }
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>
+<body>
+  <!-- Container for the registration form -->
+  <div class="container-fluid py-5">
+    <div class="row">
+      <div class="col-md-6 lotty">
+        <ng-lottie [options]="options"></ng-lottie>
+      </div>
+      <div class="col-md-6">
+        <!-- Registration form -->
+        <div class="register-form">
+          <h2 class="text-primary">Register</h2>
+          <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <!-- Username input -->
+            <div class="form-group">
+              <label for="username " class="mb-2 text-primary"
+                >Username <span class="text-danger">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control mb-2"
+                id="username"
+                name="username"
+                [(ngModel)]="username"
+                #inputField
+                (input)="
+                  inputField.value =
+                    inputField.value.charAt(0).toUpperCase() +
+                    inputField.value.slice(1)
+                "
+                required
+                minlength="3"
+                #modelUserName="ngModel"
+                [ngClass]="
+                  modelUserName.dirty && modelUserName.invalid
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+              <div
+                *ngIf="modelUserName?.errors?.['required'] && modelUserName.dirty"
+                class="invalid-feedback"
+              >
+                please enter username
+              </div>
+              <div
+                *ngIf="modelUserName.errors?.['minlength']"
+                class="text-danger !"
+              >
+                username must be at least 3 characters long.
+              </div>
+              <div *ngIf="userError.length > 0" class="text-danger !">
+                {{ userError }}
+              </div>
+            </div>
+            <!-- Contact number input -->
+            <div class="form-group">
+              <label for="contact" class="mb-2 text-primary"
+                >Contact Number</label
+              >
+              <input
+                type="tel"
+                class="form-control mb-2"
+                id="contact"
+                name="contact"
+                [(ngModel)]="contact"
+                required
+                pattern="^[0-9]{10}$"
+                maxlength="10"
+                #modelContact="ngModel"
+                [ngClass]="
+                  modelContact.dirty && modelContact.invalid ? 'is-invalid' : ''
+                "
+              />
+              <div
+                *ngIf="modelContact?.errors?.['required'] && modelContact.dirty"
+                class="invalid-feedback"
+              >
+                please enter contact number
+              </div>
+              <div
+                *ngIf="modelContact.errors?.['pattern']"
+                class="text-danger !"
+              >
+                contact number must be 10 digits long.
+              </div>
+            </div>
+            <!-- Role selection dropdown -->
+            <div class="form-group">
+              <label for="role" class="mb-2 text-primary"
+                >Role <span class="text-danger">*</span></label
+              >
+              <select
+                class="form-select form-control mb-2"
+                name="selectedRole"
+                [(ngModel)]="selectedRole"
+                #modelSelectedRole="ngModel"
+                [ngClass]="{
+                  'is-invalid': modelSelectedRole.invalid && (modelSelectedRole.dirty || modelSelectedRole.touched)
+                }"
+                required
+              >
+                <option disabled selected>Select a role</option>
+                <option
+                  *ngFor="let role of roles.slice(0, 2)"
+                  [ngValue]="role.role"
+                >
+                  {{ role.role }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="modelSelectedRole.invalid && (modelSelectedRole.dirty || modelSelectedRole.touched)">
+                Please select a role
+              </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-group">
+              <label for="password" class="mb-2 text-primary"
+                >Password <span class="text-danger">*</span></label
+              >
+              <input
+                type="password"
+                class="form-control mb-2"
+                id="password"
+                name="password"
+                [(ngModel)]="password"
+                required
+                minlength="4"
+                #modelPassword="ngModel"
+                [ngClass]="
+                  modelPassword.invalid && modelPassword.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+              <div
+                class="invalid-feedback"
+                *ngIf="modelPassword?.errors?.['minlength']"
+              >
+                please enter atleast
+                {{modelPassword?.errors?.['minlength']?.['requiredLength']}}
+                length.
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="modelPassword?.errors?.['required'] && modelPassword.dirty "
+              >
+                Please enter password
+              </div>
+            </div>
+
+            <!-- Confirm password input -->
+            <div class="form-group">
+              <label for="confirmPassword" class="mb-2 text-primary"
+                >Confirm Password <span class="text-danger">*</span></label
+              >
+              <input
+                type="password"
+                class="form-control mb-2"
+                id="confirmPassword"
+                name="confirmPassword"
+                [(ngModel)]="confirmPassword"
+                required
+                minlength="4"
+                #modelConfirmPassword="ngModel"
+                [ngClass]="
+                  modelConfirmPassword.dirty &&
+                  modelPassword.value !== modelConfirmPassword.value
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+              <div
+                *ngIf="
+                  modelPassword.value !== modelConfirmPassword.value &&
+                  modelConfirmPassword.dirty &&
+                  modelConfirmPassword.value
+                "
+                class="text-danger"
+                class="invalid-feedback"
+              >
+                Password mismatch
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="modelConfirmPassword?.errors?.['minlength']"
+              >
+                please enter atleast
+                {{modelConfirmPassword?.errors?.['minlength']?.['requiredLength']}}
+                length.
+              </div>
+            </div>
+            <!-- Submit button for registration -->
+            <button type="submit" class="btn btn-primary my-3">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

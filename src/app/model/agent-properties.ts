@@ -9,7 +9,7 @@ export interface AgentProperties {
   price: number;
   address: string;
   city: string;
-  zipcode: number;
+  zipcode: number ;
   propertyList?: [
     {
       id:number,

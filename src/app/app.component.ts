@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     },
   };
 
+  // Flags to track user roles and login status
   isAdmin: boolean = false;
   isAgent:boolean=false;
   isLoggedIn: boolean = false;
@@ -40,16 +41,19 @@ export class AppComponent implements OnInit {
     });
   }
 
+  // Check if a specific route is active
   isActive(routePath: string): boolean {
     return this.router.isActive(routePath, false);
   }
 
+   // Logout user
   logout(): void {
     this.authService.logout();
   }
 
   showSidebar = false; 
 
+  // Toggle the visibility of the sidebar
   toggleSidebar() {
     this.showSidebar = !this.showSidebar; 
   }

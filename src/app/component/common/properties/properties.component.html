@@ -1,0 +1,87 @@
+<!-- Container for properties-->
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="pe-4" >Properties</h1>
+
+    <!-- custom search input -->
+    <div class="input-group custom-search ">
+    <input
+    class="form-control mx-5 rounded mt-5 "
+    type="search"
+    placeholder=" Search Property By Name" 
+    aria-label="Search"
+    [(ngModel)]="search"
+    (ngModelChange)="filterArray()"
+  />
+  </div>
+  </div>
+
+  <!-- displaying all properties through looping -->
+  <div class="row">
+    <div class="col-md-3" *ngFor="let property of properties.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+      <div class="card property-card" *ngIf="property.approve === true">
+        <div></div>
+        <img
+          src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
+            property.id
+          }}"
+          class="card-img-top"
+          alt="Property Image"
+          style="transition: transform 0.8s"
+        />
+        <div class="card-body">
+          <div class="card-location d-flex">
+            <i class="fa-solid fa-location-dot me-2 mt-1"></i>
+            <p class="card-text">{{ property.city }}</p>
+          </div>
+          <h5 class="card-title pb-2">
+            {{ property.propertyName }}
+          </h5>
+          <div class="d-flex">
+            <p class="text-primary price">₹ {{ property.price }}</p>
+            <a
+              routerLink="/propertyDetails"
+              class="text-primary button-view"
+              data-bs-toggle="modal"
+              data-bs-target="#mymodal"
+              (click)="setSelectedProperty(property)"
+              >View Details ></a
+            >
+          </div>
+          <div class="">
+            <div class="text-primary">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <td>{{ property.agentName }}</td>
+                  </tr>
+                  <tr>
+                    <th>Contact</th>
+                    <td>{{ property.contactNumber }}</td>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- pagination for properties -->
+    <ul class="pagination  justify-content-center mt-3">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
+        
+      </li>
+      <li class="page-item text-danger" *ngFor="let page of getPageNumbers()"  [class.active]="currentPage === page">
+        <a class="page-link" (click)="currentPage = page">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+        <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+       
+      </li>
+    </ul>
+  </div>
+</div>
