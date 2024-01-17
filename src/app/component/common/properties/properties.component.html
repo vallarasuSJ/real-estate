@@ -6,15 +6,10 @@
       <!-- Price Range Dropdown -->
     <div class="pb-2">
       <label for="priceRange" class="priceRange pe-2">Price Range:</label>
-      <select
-        id="priceRange"
-        [(ngModel)]="selectedPriceRange"
-        (change)="applyFilters()"  
-      >
-        <option *ngFor="let range of priceRanges"  [value]="range.value">
-          {{ range.label }}
-        </option>
-      </select>
+      <mat-slider min="0" max="900000" discrete="true" (input)="applyFilters()">
+        <input value="0" matSliderStartThumb [(ngModel)]="minPrice">
+        <input value="900000" matSliderEndThumb [(ngModel)]="maxPrice">
+      </mat-slider>
     </div>
     </div>
     <!-- custom search input -->

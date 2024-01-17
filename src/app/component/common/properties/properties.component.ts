@@ -25,15 +25,8 @@ export class PropertiesComponent implements OnInit {
   itemsPerPage: number = 8;
   isFiltered: boolean = false;
   selectedPriceRangeProperty:PropertyDetail[]=[];
-
-  selectedPriceRange: string = 'all';
-
-  priceRanges: { label: string; value: string }[] = [
-    { label: 'All', value: 'all' },
-    { label: '0 - 200,000', value: '0-200000' },
-    { label: '200,000 - 300,000', value: '200000-300000' },
-    { label: '300,000 - 900,000', value: '300000-900000' },
-  ];
+  minPrice:number=0;
+  maxPrice:number=900000;
   constructor(private propertyService: PropertyService) {}
 
   ngOnInit(): void {
@@ -68,13 +61,11 @@ export class PropertiesComponent implements OnInit {
 
   //price range filter
   applyFilters(): void {
-    const [minPrice, maxPrice] =this.selectedPriceRange !== 'all'
-        ? this.selectedPriceRange.split('-').map(Number): [0, Infinity];
       this.properties = this.totalProperties.filter(
         (property: PropertyDetail) => {
           const priceMatches =
-            ( property.price >= minPrice) &&
-            ( property.price <= maxPrice);
+            ( property.price >= this.minPrice) &&
+            ( property.price <= this.maxPrice);
 
           return priceMatches;
         }

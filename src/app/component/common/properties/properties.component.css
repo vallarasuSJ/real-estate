@@ -81,5 +81,8 @@
   .custom-search {
     width: 400px; 
   }
+  mat-slider {
+    width: 300px;
+  }
 
   

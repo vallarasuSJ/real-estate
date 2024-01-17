@@ -28,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CategoryPropertiesComponent } from './component/common/category-properties/category-properties.component';
 import { ConfirmationModalComponent } from './component/confirmation-modal/confirmation-modal.component';
 import { SelectRequiredValidatorDirective } from './shared/select-required-validator.directive';
+import {MatSliderModule} from '@angular/material/slider';
 
 export function playerFactory() {
   return player;
@@ -61,7 +62,8 @@ export function playerFactory() {
     ReactiveFormsModule,
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatSliderModule
   ],
   providers: [
     {
