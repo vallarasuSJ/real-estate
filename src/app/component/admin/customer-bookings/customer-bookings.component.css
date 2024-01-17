@@ -1,6 +1,4 @@
-.container {
-margin-top: 90px;
-}
+
 h1{
   color: #fdfdfd;
 }
@@ -20,5 +18,18 @@ td {
 
 th {
   background-color: #f2f2f2;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.customer_container{
+  margin-top: 100px;
 }
 

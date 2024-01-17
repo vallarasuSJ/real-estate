@@ -16,4 +16,5 @@ export interface PropertyDetail {
   photo?:FileType;
   agentName?:string;
   contactNumber?:number;
+  categoryName?:string;
 }

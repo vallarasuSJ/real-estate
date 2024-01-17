@@ -19,16 +19,15 @@ import { PropertiesComponent } from './component/common/properties/properties.co
 import { AddPropertyComponent } from './component/agent/add-property/add-property.component';
 import { AgentsComponent } from './component/admin/agents/agents.component';
 import { CustomerBookingsComponent } from './component/admin/customer-bookings/customer-bookings.component';
-import { PropertyDetailsComponent } from './component/common/property-details/property-details.component';
+import { PropertyDetailsComponent } from './component/customer/property-details/property-details.component';
 import { BookedPropertiesComponent } from './component/customer/booked-properties/booked-properties.component';
-import { UserPageComponent } from './component/customer/user-page/user-page.component';
-import { AgentPageComponent } from './component/agent/agent-page/agent-page.component';
 import { UpdatePropertyComponent } from './component/agent/update-property/update-property.component';
 import { AgentPropertiesComponent } from './component/agent/agent-properties/agent-properties.component';
 import { ApprovePropertyComponent } from './component/admin/approve-property/approve-property.component';
-import { ToastPackage, ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { CategoryPropertiesComponent } from './component/common/category-properties/category-properties.component';
 import { ConfirmationModalComponent } from './component/confirmation-modal/confirmation-modal.component';
+import { SelectRequiredValidatorDirective } from './shared/select-required-validator.directive';
 
 export function playerFactory() {
   return player;
@@ -48,13 +47,12 @@ export function playerFactory() {
     BookedPropertiesComponent,
     CustomerBookingsComponent,
     PropertyDetailsComponent,
-    UserPageComponent,
-    AgentPageComponent,
     UpdatePropertyComponent,
     AgentPropertiesComponent,
     ApprovePropertyComponent,
     CategoryPropertiesComponent,
     ConfirmationModalComponent,
+    SelectRequiredValidatorDirective
   ],
   imports: [
     BrowserModule,

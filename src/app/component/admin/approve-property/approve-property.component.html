@@ -1,5 +1,5 @@
 <!-- Container for approve Properties -->
-<div class="container">
+<div class="container property_container">
   <h1>Properties</h1>
   <div class="mt-4 table-responsive">
     <!-- Table for displaying Properties -->
@@ -7,7 +7,17 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">Image</th>
-          <th scope="col">Property Name</th>
+          <th class="sortable">
+            Property Name
+            <div class="btn-group ">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" (click)="sortPropertiesAToZ()">A to Z</button>
+                <button class="dropdown-item" (click)="sortPropertiesZToA()">Z to A</button>
+              </div>
+            </div>
+          </th>
           <th scope="col">Price</th>
           <th scope="col">Address</th>
           <th scope="col">city</th>
@@ -51,20 +61,20 @@
           <td class="action-btns" *ngIf="property.approve === false">
             <a
               routerLink="/approveProperty"
-              class="btn btn-danger btn-block me-2 mt-2 px-2"
+              class="btn approve_button btn-block me-2 mt-2 px-2"
               (click)="approveProperty(property)"
               >Approve</a
             >
           </td>
           <td class="action-btns" *ngIf="property.approve === true">
-            <a class="btn btn-success btn-block me-2 mt-2 px-2">Approved</a>
+            <a class="btn btn-primary btn-block me-2 mt-2 px-2">Approved</a>
           </td>
         </tr>
       </tbody>
     </table>
 
     <!-- Pagination for Property List -->
-    <ul class="pagination justify-content-center mt-3">
+    <ul class="pagination justify-content-center mt-3" *ngIf="properties.length>0">
       <li class="page-item" [class.disabled]="currentPage === 1">
         <a class="page-link" (click)="currentPage = currentPage - 1"
           >Previous</a

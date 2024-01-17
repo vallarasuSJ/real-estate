@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnimationOptions } from 'ngx-lottie';
+import { ToastrService } from 'ngx-toastr';
 import { bookedProperties } from 'src/app/model/booked';
 import { BookingService } from 'src/app/service/booking.service';
 import { StorageService } from 'src/app/service/storage.service';
@@ -21,7 +22,7 @@ export class BookedPropertiesComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 4;
 
-  constructor(private bookingService: BookingService,private storageService:StorageService,private router: Router,) {}
+  constructor(private bookingService: BookingService,private storageService:StorageService,private router: Router,private toastr:ToastrService) {}
 
   ngOnInit(): void {
     this.userId=this.storageService.getLoggedInUser().id;
@@ -46,18 +47,20 @@ export class BookedPropertiesComponent implements OnInit {
     
     this.bookingService.cancelBooking(id).subscribe({
       next:(response)=>{
-        this.booked=response.data;
+        // this.booked=response.data;
+        this.ngOnInit();
+        this.toastr.success('Booked properties deleted Successfully');
       },
       error: (err: any) => {
         let message: string = err?.error?.error?.message;
         this.error = message.includes(',') ? message.split(',')[0] : message;
       },
     })
-    this.ngOnInit();
-    this.router.navigate(['/'],{ replaceUrl: true });
+    // this.router.navigate(['/'],{ replaceUrl: true });
     
   }
   onCancelDelete(){
+    // this.ngOnInit();
     this.router.navigate(['/bookedProperties'],{ replaceUrl: true });
   }
 

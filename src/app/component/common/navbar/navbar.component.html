@@ -1,29 +1,96 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container-fluid">
-    
     <div class="d-flex align-items-center">
       <div class="navbar-nav me-auto">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" routerLink="/" *ngIf="role !== 'ADMIN'">
           <i class="fas fa-home ps-1 pe-2"></i>DreamHome
         </a>
-        
-        <a class="navbar-brand" href="/properties">
+        <a class="navbar-brand" routerLink="/admin" *ngIf="role === 'ADMIN'">
+          <i class="fa-solid fa-house ps-1 pe-2"></i>Dashboard
+        </a>
+        <a class="navbar-brand" routerLink="/approveProperty" *ngIf="role === 'ADMIN'">
+          <i class="fa-solid  fa-book ps-1 pe-2"></i>Approve
+        </a>
+        <a class="navbar-brand" routerLink="/agents" *ngIf="role === 'ADMIN'">
+          <i class="fa-solid fa-user ps-1 pe-2"></i>Agents
+        </a>
+        <a class="navbar-brand" routerLink="/customerBookings" *ngIf="role === 'ADMIN'">
+          <i class="fa-solid  fa-user ps-1 pe-2"></i>Customers
+        </a>
+        <a
+          class="navbar-brand"
+          routerLink="/properties"
+          *ngIf="role !== 'ADMIN' && role !== 'AGENT'"
+        >
           <i class="fa fa-house pe-2"></i>Properties
+        </a>
+
+        <a
+          class="navbar-brand"
+          routerLink="/agentProperties"
+          *ngIf="role === 'AGENT'"
+        >
+          <i class="fa fa-house pe-2"></i>Properties
+        </a>
+
+        <!-- booked properties page link for user -->
+        <a
+          class="navbar-brand ps-1"
+          routerLink="/bookedProperties"
+          *ngIf="role === 'USER'"
+        >
+          <i class="fa fa-person pe-2"></i>Booked
+        </a>
+
+        <!-- Add Property link for agent-->
+        <a
+          class="navbar-brand ps-1"
+          routerLink="/addProperty"
+          *ngIf="role === 'AGENT'"
+        >
+          <i class="fa fa-person pe-2"></i>Add property
         </a>
       </div>
     </div>
 
-    
-    <div class="d-flex align-items-center">
-      <div class="navbar-nav">
-          <!-- Login Button -->
-        <button type="submit" routerLink="/login" class="btn btn-primary ps-1 me-1"><i class="fa fa-sign-in" aria-hidden="true"></i>
+    <!-- Non-loggedIn user login register-->
+    <div class="d-flex align-items-center ms-5">
+      <div
+        class="navbar-nav"
+        *ngIf="role !== 'USER' && role !== 'AGENT' && role !== 'ADMIN'"
+      >
+        <!-- Login Button -->
+        <button
+          type="submit"
+          routerLink="/login"
+          class="btn btn-primary ps-1 me-1"
+        >
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
           Login
         </button>
-         <!-- register Button -->
-        <button type="submit" routerLink="/register" class="btn btn-primary ps-1 pe-1"> <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <!-- register Button -->
+        <button
+          type="submit"
+          routerLink="/register"
+          class="btn btn-primary ps-1 pe-1"
+        >
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
           Register
+        </button>
+      </div>
+    </div>
+
+    <!--For logged User logout button-->
+    <div class="d-flex align-items-center">
+      <div
+        class="navbar-nav"
+        *ngIf="role === 'USER' || role === 'AGENT' || role === 'ADMIN'"
+      >
+        <!-- submit button for logout -->
+        <button type="submit" class="btn btn-primary px-3" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
         </button>
       </div>
     </div>
@@ -31,9 +98,3 @@
 </nav>
 
 <div class="navbar-line"></div>
-
-
-
-
-
-

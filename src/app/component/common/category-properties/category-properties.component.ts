@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/model/category';
 import { PropertyDetail } from 'src/app/model/property';
 import { CategoryService } from 'src/app/service/category.service';
 import { PropertyService } from 'src/app/service/property.service';
@@ -11,7 +10,7 @@ import { PropertyService } from 'src/app/service/property.service';
 })
 export class CategoryPropertiesComponent implements OnInit {
   error: String = '';
-  categories: Category[] = [];
+  categories: PropertyDetail[] = [];
   id: number = 0;
   currentPage: number = 1;
   itemsPerPage: number = 4;
@@ -46,5 +45,10 @@ export class CategoryPropertiesComponent implements OnInit {
   //returns last page
   getLastPage(): number {
     return this.getPageNumbers().slice(-1)[0] || 1;
+  }
+
+  //set  specific property to the service
+  setSelectedProperty(property: PropertyDetail): void {
+    this.propertyService.setSelectedProperty(property);
   }
 }

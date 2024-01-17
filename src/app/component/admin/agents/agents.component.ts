@@ -15,6 +15,7 @@ export class AgentsComponent implements OnInit {
   agents:AgentProperties[]=[];
   currentPage: number = 1;
   itemsPerPage: number = 3;
+  
 
   constructor(private agentService:AgentService,private adminService:AdminService){}
 
@@ -58,4 +59,5 @@ export class AgentsComponent implements OnInit {
     this.agentService.setSelectedProperty(agent);
   }
 
+  
 }

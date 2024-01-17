@@ -104,4 +104,18 @@ export class AgentPropertiesComponent implements OnInit {
     getLastPage(): number {
       return this.getPageNumbers().slice(-1)[0] || 1;
     }
+
+     // Sort Properties in descending order alphabetically (A to Z)
+    sortPropertiesAToZ() {
+      this.properties.sort((a, b) =>
+        (a.propertyName || '').localeCompare(b.propertyName)
+      );
+    }
+   
+    // Sort Properties in descending order alphabetically (Z to A)
+    sortPropertiesZToA() {
+      this.properties.sort((a, b) =>
+        (b.propertyName || '').localeCompare(a.propertyName)
+      );
+    }
 }

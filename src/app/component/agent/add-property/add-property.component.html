@@ -54,14 +54,14 @@
             <select
               class="form-select form-control mb-2"
               name="categoryId"
+              appSelectvalidator
               [(ngModel)]="categoryId"
               #modelCategoryId="ngModel"
               [ngClass]="{
                 'is-invalid': modelCategoryId.invalid && (modelCategoryId.dirty || modelCategoryId.touched)
               }"
-              required
             >
-              <option  [ngValue]="null" selected disabled>
+              <option  value="-1" >
                 Select a category
               </option>
               <option
@@ -71,11 +71,8 @@
                 {{ category.categoryName }}
               </option>
             </select>
-            <div
-              class="invalid-feedback"
-              *ngIf="modelCategoryId.invalid && (modelCategoryId.dirty || modelCategoryId.touched)"
-            >
-              Please select a category
+            <div class="invalid-feedback" *ngIf="modelCategoryId.invalid && (modelCategoryId.dirty || modelCategoryId.touched)">
+              <div *ngIf="modelCategoryId.errors?.['defaultSelected']">Category is required</div>
             </div>
           </div>
 

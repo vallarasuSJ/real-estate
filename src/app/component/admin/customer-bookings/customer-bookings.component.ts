@@ -25,6 +25,11 @@ export class CustomerBookingsComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 3;
 
+  
+  sortBy: string = 'name';
+  sortDirection='asc';
+  
+
   ngOnInit(): void {
 
     //function to get all customer bookings for admin
@@ -48,5 +53,19 @@ export class CustomerBookingsComponent implements OnInit {
    //returns last page
   getLastPage(): number {
     return this.getPageNumbers().slice(-1)[0] || 1;
+  }
+  
+  // Sort customer bookings in descending order alphabetically (A to Z)
+  sortBookingsAToZ() {
+    this.customerBookings.sort((a, b) =>
+      (a.name || '').localeCompare(b.name)
+    );
+  }
+ 
+  // Sort customer bookings in descending order alphabetically (Z to A)
+  sortBookingsZToA() {
+    this.customerBookings.sort((a, b) =>
+      (b.name || '').localeCompare(a.name)
+    );
   }
 }

@@ -20,7 +20,7 @@ export class AddPropertyComponent implements OnInit {
   city: string = '';
   zipcode: number | null = null;
   error: String = '';
-  categoryId: number = 0;
+  categoryId: number = -1;
   file = '';
   address: Address[] = [];
   categories: Category[] = [];
@@ -59,7 +59,7 @@ export class AddPropertyComponent implements OnInit {
     const formData = new FormData();
     console.log(addPropertyForm.value);
 
-    formData.append('photo', this.file);
+    formData.append('image', this.file);
     formData.append('propertyName', addPropertyForm.value.propertyName);
     formData.append('price', addPropertyForm.value.price);
     formData.append('address', addPropertyForm.value.address);

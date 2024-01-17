@@ -15,7 +15,7 @@
         <div></div>
         <img
           src="{{ 'http://localhost:8080/api/agent/downloadFile/' }}{{
-            property.propertyId
+            property.id
           }}"
           class="card-img-top"
           alt="Property Image"
@@ -23,35 +23,46 @@
         />
         <div class="card-body">
           <div class="card-location d-flex">
-            <i class="fa-solid fa-location-dot me-1 pb-3"></i>
-            <p class="card-text">{{ property.address }}</p>
+            <i class="fa-solid fa-location-dot me-2 mt-1"></i>
+            <p class="card-text">{{ property.city }}</p>
           </div>
           <h5 class="card-title pb-2">
             {{ property.propertyName }}
           </h5>
-
-          <p>₹{{ property.price }}</p>
-
-          <div class="text-primary">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Agent</th>
-                  <td>{{ property.agentName }}</td>
-                </tr>
-                <tr>
-                  <th>Contact</th>
-                  <td>{{ property.contactNumber }}</td>
-                </tr>
-              </thead>
-            </table>
+          <div class="d-flex">
+            <p class="text-primary price">₹ {{ property.price }}</p>
+            <a
+              routerLink="/propertyDetails"
+              class="text-primary button-view"
+              data-bs-toggle="modal"
+              data-bs-target="#mymodal"
+              (click)="setSelectedProperty(property)"
+              >View Details ></a
+            >
           </div>
+          <div class="">
+            <div class="text-primary">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <td>{{ property.agentName }}</td>
+                  </tr>
+                  <tr>
+                    <th>Contact</th>
+                    <td>{{ property.contactNumber }}</td>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <p class="card-text"></p>
         </div>
       </div>
     </div>
 
 <!-- Pagination for Category Properties -->
-    <ul class="pagination justify-content-center mt-3">
+    <ul class="pagination justify-content-center mt-3"  *ngIf="categories.length>0">
       <li class="page-item" [class.disabled]="currentPage === 1">
         <a class="page-link" (click)="currentPage = currentPage - 1"
           >Previous</a

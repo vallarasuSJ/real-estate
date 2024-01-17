@@ -1,5 +1,3 @@
- /* Add custom styles here */
-        /* For example: */
         table {
             width: 100%;
         }
@@ -14,4 +12,10 @@
         th {
             background-color: #f2f2f2;
         }
-  
+        .property_container{
+            margin-top: 100px;
+        }
+        .approve_button{
+            color: white;
+            background-color: rgb(164, 214, 226);
+        }

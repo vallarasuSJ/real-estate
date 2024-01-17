@@ -1,24 +1,48 @@
 <!-- Container for properties-->
 <div class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="pe-4" >Properties</h1>
-
+  <div class="d-flex justify-content-between align-items-center mb-3 ">
+    <div>
+      <h1 class="pe-4">Properties</h1>
+      <!-- Price Range Dropdown -->
+    <div class="pb-2">
+      <label for="priceRange" class="priceRange pe-2">Price Range:</label>
+      <select
+        id="priceRange"
+        [(ngModel)]="selectedPriceRange"
+        (change)="applyFilters()"  
+      >
+        <option *ngFor="let range of priceRanges"  [value]="range.value">
+          {{ range.label }}
+        </option>
+      </select>
+    </div>
+    </div>
     <!-- custom search input -->
-    <div class="input-group custom-search ">
-    <input
-    class="form-control mx-5 rounded mt-5 "
-    type="search"
-    placeholder=" Search Property By Name" 
-    aria-label="Search"
-    [(ngModel)]="search"
-    (ngModelChange)="filterArray()"
-  />
-  </div>
+    <div class="input-group custom-search">
+      <input
+        class="form-control mx-5 rounded mt-5"
+        type="search"
+        placeholder=" Search Property By Name"
+        aria-label="Search"
+        [(ngModel)]="search"
+        (ngModelChange)="searchArray()"
+      />
+    </div>
+
+    
   </div>
 
   <!-- displaying all properties through looping -->
   <div class="row">
-    <div class="col-md-3" *ngFor="let property of properties.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+    <div
+      class="col-md-3"
+      *ngFor="
+        let property of properties.slice(
+          (currentPage - 1) * itemsPerPage,
+          currentPage * itemsPerPage
+        )
+      "
+    >
       <div class="card property-card" *ngIf="property.approve === true">
         <div></div>
         <img
@@ -68,19 +92,26 @@
         </div>
       </div>
     </div>
-    
+
     <!-- pagination for properties -->
-    <ul class="pagination  justify-content-center mt-3">
+    <ul
+      class="pagination justify-content-center mt-3"
+      *ngIf="properties.length > 0"
+    >
       <li class="page-item" [class.disabled]="currentPage === 1">
-        <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
-        
+        <a class="page-link" (click)="currentPage = currentPage - 1"
+          >Previous</a
+        >
       </li>
-      <li class="page-item text-danger" *ngFor="let page of getPageNumbers()"  [class.active]="currentPage === page">
+      <li
+        class="page-item text-danger"
+        *ngFor="let page of getPageNumbers()"
+        [class.active]="currentPage === page"
+      >
         <a class="page-link" (click)="currentPage = page">{{ page }}</a>
       </li>
       <li class="page-item" [class.disabled]="currentPage === getLastPage()">
         <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
-       
       </li>
     </ul>
   </div>

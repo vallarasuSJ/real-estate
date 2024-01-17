@@ -7,8 +7,8 @@
   </div>
 
    <!-- Table for displaying booked properties -->
-  <table class="table table-bordered property-table" *ngIf="booked.length > 0">
-    <thead class="thead-light table-head">
+  <table class="table table-bordered property-table" *ngIf="booked.length>0">
+    <thead class="thead-light table-head" >
       <tr>
         <th>Image</th>
         <th>Property Name</th>
@@ -64,8 +64,9 @@
     </tbody>
   </table>
 
+
   <!-- Pagination for Booked Properties -->
-  <ul class="pagination  justify-content-center mt-3">
+  <ul class="pagination  justify-content-center mt-3" *ngIf="booked.length>0">
     <li class="page-item" [class.disabled]="currentPage === 1">
       <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
       

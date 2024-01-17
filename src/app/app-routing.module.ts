@@ -9,10 +9,8 @@ import { PropertiesComponent } from './component/common/properties/properties.co
 import { AddPropertyComponent } from './component/agent/add-property/add-property.component';
 import { AgentsComponent } from './component/admin/agents/agents.component';
 import { CustomerBookingsComponent } from './component/admin/customer-bookings/customer-bookings.component';
-import { PropertyDetailsComponent } from './component/common/property-details/property-details.component';
+import { PropertyDetailsComponent } from './component/customer/property-details/property-details.component';
 import { BookedPropertiesComponent } from './component/customer/booked-properties/booked-properties.component';
-import { UserPageComponent } from './component/customer/user-page/user-page.component';
-import { AgentPageComponent } from './component/agent/agent-page/agent-page.component';
 import { UpdatePropertyComponent } from './component/agent/update-property/update-property.component';
 import { AgentPropertiesComponent } from './component/agent/agent-properties/agent-properties.component';
 import { ApprovePropertyComponent } from './component/admin/approve-property/approve-property.component';
@@ -30,8 +28,6 @@ const routes: Routes = [
   {path:'agents',component:AgentsComponent},
   {path:'customerBookings',component:CustomerBookingsComponent,  canActivate: [authGuard],},
   {path:'bookedProperties',component:BookedPropertiesComponent , canActivate: [authGuard]},
-  {path:'user',component:UserPageComponent, canActivate: [authGuard]},
-  {path:'agentPage',component:AgentPageComponent, canActivate: [authGuard]},
   {path:'updateProperty',component:UpdatePropertyComponent, canActivate: [authGuard]},
   {path:'agentProperties',component:AgentPropertiesComponent, canActivate: [authGuard]},
   {path:'approveProperty',component:ApprovePropertyComponent, canActivate: [authGuard]},

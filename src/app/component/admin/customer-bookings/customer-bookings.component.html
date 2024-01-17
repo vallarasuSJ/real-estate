@@ -1,5 +1,5 @@
 <!-- Container for displaying Customer bookings to the admin -->
-<div class="container mt-4">
+<div class="container customer_container ">
   <h1>Customer bookings</h1>
 
     <!-- Table for displaying customer booking details -->
@@ -7,7 +7,18 @@
     <thead>
       <tr>
         <th>Image</th>
-        <th>Customer Name</th>
+        <th class="sortable">
+          Customer Name
+          <div class="btn-group ">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" (click)="sortBookingsAToZ()">A to Z</button>
+              <button class="dropdown-item" (click)="sortBookingsZToA()">Z to A</button>
+            </div>
+          </div>
+         
+        </th>
         <th>Contact Number</th>
         <th>Property Name</th>
         <th>Address</th>
@@ -27,7 +38,7 @@
         </td>
         <td>{{ customer.name }}</td>
         <td>{{ customer.contactNumber }}</td>
-        <td>{{ customer.propertyName }}</td>
+        <td >{{ customer.propertyName }}</td>
         <td>{{ customer.city }}</td>
         <td>{{ customer.price }}</td>
         <td>{{ customer.bookedTime }}</td>
@@ -36,7 +47,7 @@
   </table>
 
   <!-- Pagination for Customer Bookings -->
-  <ul class="pagination  justify-content-center mt-3">
+  <ul class="pagination  justify-content-center mt-3" *ngIf="customerBookings.length>0">
     <li class="page-item" [class.disabled]="currentPage === 1">
       <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
       

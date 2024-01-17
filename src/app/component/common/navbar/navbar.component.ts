@@ -9,10 +9,16 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class NavbarComponent{
 
-  role:String='';
+  role:String="";
 
   constructor(private authService:AuthService,private storageService:StorageService){
     this.role=this.storageService.getLoggedInUser().role;
+    console.log(this.role);
+  }
+
+  //logout function
+  logout(): void {
+    this.authService.logout();
   }
   
 }

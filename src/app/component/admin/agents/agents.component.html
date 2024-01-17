@@ -11,14 +11,13 @@
       </div>
 
       <hr class="my-4" />
-
       <h3>Properties</h3>
       <div class="table-responsive">
         <table class="table table-bordered mt-3">
           <thead>
             <tr>
               <th>Image</th>
-              <th>Property Name</th>
+              <th >Property Name</th>
               <th>Price</th>
               <th>Address</th>
               <th>city</th>
@@ -36,7 +35,7 @@
                   style="width: 200px; height:150px"
                 />
               </td>
-              <td>{{ property.propertyName }}</td>
+              <td >{{ property.propertyName }}</td>
               <td>{{ property.price }}</td>
               <td>{{ property.address.address }}</td>
               <td>{{ property.address.city }}</td>
@@ -46,7 +45,7 @@
         </table>
 
         <!-- pagination section -->
-        <ul class="pagination  justify-content-center mt-3">
+        <ul class="pagination  justify-content-center mt-3" *ngIf="agents.length>0" >
           <li class="page-item" [class.disabled]="currentPage === 1">
             <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
             
