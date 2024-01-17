@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnimationOptions } from 'ngx-lottie';
+import { ToastrService } from 'ngx-toastr';
 import { AppResponse } from 'src/app/model/appResponse';
 import { AppUser } from 'src/app/model/appUser';
 import { Register } from 'src/app/model/register';
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
   appUsers:AppUser[]=[];
   roles:Role[]=[];
 
-  constructor(private authService:AuthService,private router:Router){}
+  constructor(private authService:AuthService,private router:Router,private toastr:ToastrService){}
   ngOnInit(): void {
     this.authService.getAllUsers().subscribe({
       next:(response:AppResponse)=>{
@@ -73,7 +74,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(register).subscribe({
       next:(response:AppResponse)=>{
         console.log(response.data); 
-        alert('Registration completed successfully! You can now log in.');
+        this.toastr.success('Registration completed successfully! You can now log in.');
         this.router.navigate(['/login']);
       },
       error:(err)=>{
